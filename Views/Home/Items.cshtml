@@ -1,0 +1,78 @@
+﻿@model MacLibraryProject.Models.ItemModel
+
+@{
+    ViewBag.Title = "Items";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- inner page section -->
+<section class="inner_page_head">
+    <div class="container_fuild">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <h3></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end inner page section -->
+<section class="product_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2 style="text-align:center">
+                Our <span>Items</span>
+            </h2>
+        </div>
+        <br />
+        <div class="container">
+            @foreach (var c in Model.cat)
+            {
+
+
+
+                <a href="@Url.Action("Items", "Home", new {id=c.Cat_Id })" class="btn btn-outline-danger"> @c.Cat_Name</a>
+            }
+        </div>
+        <br />
+        <div class="row">
+            @foreach (var o in Model.it)
+            {
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <div class="option_container">
+                            <div class="options">
+                                <a href="" class="option1">
+                                    @o.item_name
+                                </a>
+                                <a href="@Url.Action("ViewPdf", "Pdf", new { id = o.item_id})" class="option2">Click
+                                   
+                                </a>
+                            </div>
+                        </div>
+                        <div class="img-box rounded" style="background-color:aliceblue">
+                            <img class="rounded" src="@Url.Content(o.item_pic)" height="200px;" width="180px; " />;
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                @o.item_disc
+                            </h5>
+                            <h6>
+                                @o.item_author
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <div class="btn-box">
+            <a href="@Url.Action("Index","Home")">
+                Back to Home
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+﻿@model MacLibraryProject.Models.Item
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.item_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item_disc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_disc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item_pic)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.item_pic)" width="50px" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item_author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item_branch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_branch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Cat_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Cat_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.item_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
