@@ -13,12 +13,65 @@
           <Property Name="Admin_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Admin_Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="AudioTable">
+          <Key>
+            <PropertyRef Name="Audio_id" />
+          </Key>
+          <Property Name="Audio_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Audio_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Audio_Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Audio_Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Audio_File" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Available">
+          <Key>
+            <PropertyRef Name="Available_Id" />
+          </Key>
+          <Property Name="Available_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Current_Location" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Collection" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Shelf_Number" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Barcode" Type="int" Nullable="false" />
+          <Property Name="Item_fid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="carrer">
+          <Key>
+            <PropertyRef Name="carrer_id" />
+          </Key>
+          <Property Name="carrer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="carrer_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="carrer_position" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="carrer_qualification" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="carrer_desc" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Cat_Id" />
           </Key>
           <Property Name="Cat_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Cat_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Community">
+          <Key>
+            <PropertyRef Name="com_id" />
+          </Key>
+          <Property Name="com_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="com_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="com_desc" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="com_author" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="com_price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="person_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="person_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="person_phone" Type="int" Nullable="false" />
+          <Property Name="person_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="messages" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -32,6 +85,38 @@
           <Property Name="cat_fid" Type="int" Nullable="false" />
           <Property Name="item_branch" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="leave_id" />
+          </Key>
+          <Property Name="leave_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="days" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="reason" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="pay_id" />
+          </Key>
+          <Property Name="pay_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact" Type="int" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="staff_id" />
+          </Key>
+          <Property Name="staff_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="staff_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="staff_phone" Type="int" Nullable="false" />
+          <Property Name="staff_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="staff_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="User_Id" />
@@ -44,26 +129,45 @@
           <Property Name="User_Contact" Type="int" Nullable="false" />
           <Property Name="User_Department" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Item_Category">
-          <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+        <EntityType Name="Videobook">
+          <Key>
+            <PropertyRef Name="Video_ID" />
+          </Key>
+          <Property Name="Video_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Video_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Video_File" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Video_Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Video_Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Available_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Available" Type="Self.Available" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="Cat_Id" />
+            <Principal Role="Item">
+              <PropertyRef Name="item_id" />
             </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="cat_fid" />
+            <Dependent Role="Available">
+              <PropertyRef Name="Item_fid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="LibraryDbModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AudioTable" EntityType="Self.AudioTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Available" EntityType="Self.Available" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="carrer" EntityType="Self.carrer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Community" EntityType="Self.Community" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="staff" EntityType="Self.staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
-            <End Role="Category" EntitySet="Category" />
+          <EntitySet Name="Videobook" EntityType="Self.Videobook" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Available_Item" Association="Self.FK_Available_Item">
             <End Role="Item" EntitySet="Item" />
+            <End Role="Available" EntitySet="Available" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -99,7 +203,20 @@
             <End Role="Category" EntitySet="Categories" />
             <End Role="Item" EntitySet="Items" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="carrers" EntityType="LibraryDbModel.carrer" />
+          <EntitySet Name="contacts" EntityType="LibraryDbModel.contact" />
+          <EntitySet Name="staffs" EntityType="LibraryDbModel.staff" />
+          <EntitySet Name="Availables" EntityType="LibraryDbModel.Available" />
+          <AssociationSet Name="FK_Available_Item" Association="LibraryDbModel.FK_Available_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Available" EntitySet="Availables" />
+          </AssociationSet>
+          <EntitySet Name="Leaves" EntityType="LibraryDbModel.Leave" />
+          <EntitySet Name="Communities" EntityType="LibraryDbModel.Community" />
+          <EntitySet Name="Payments" EntityType="LibraryDbModel.Payment" />
+          <EntitySet Name="Videobooks" EntityType="LibraryDbModel.Videobook" />
+          <EntitySet Name="AudioTables" EntityType="LibraryDbModel.AudioTable" />
+          </EntityContainer>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Cat_Id" />
@@ -120,6 +237,7 @@
           <Property Name="cat_fid" Type="Int32" Nullable="false" />
           <Property Name="item_branch" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Category" Relationship="LibraryDbModel.FK_Item_Category" FromRole="Item" ToRole="Category" />
+          <NavigationProperty Name="Availables" Relationship="LibraryDbModel.FK_Available_Item" FromRole="Item" ToRole="Available" />
         </EntityType>
         <Association Name="FK_Item_Category">
           <End Type="LibraryDbModel.Category" Role="Category" Multiplicity="1" />
@@ -133,7 +251,115 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="carrer">
+          <Key>
+            <PropertyRef Name="carrer_id" />
+          </Key>
+          <Property Name="carrer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="carrer_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="carrer_position" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="carrer_qualification" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="carrer_desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="person_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="person_phone" Type="Int32" Nullable="false" />
+          <Property Name="person_email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="messages" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="staff_id" />
+          </Key>
+          <Property Name="staff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="staff_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="staff_phone" Type="Int32" Nullable="false" />
+          <Property Name="staff_email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="staff_password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Available">
+          <Key>
+            <PropertyRef Name="Available_Id" />
+          </Key>
+          <Property Name="Available_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Current_Location" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Collection" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Shelf_Number" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="Int32" Nullable="false" />
+          <Property Name="Item_fid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="LibraryDbModel.FK_Available_Item" FromRole="Available" ToRole="Item" />
+        </EntityType>
+        <Association Name="FK_Available_Item">
+          <End Type="LibraryDbModel.Item" Role="Item" Multiplicity="1" />
+          <End Type="LibraryDbModel.Available" Role="Available" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="item_id" />
+            </Principal>
+            <Dependent Role="Available">
+              <PropertyRef Name="Item_fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="leave_id" />
+          </Key>
+          <Property Name="leave_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="days" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reason" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Community">
+          <Key>
+            <PropertyRef Name="com_id" />
+          </Key>
+          <Property Name="com_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="com_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="com_desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="com_author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="com_price" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="pay_id" />
+          </Key>
+          <Property Name="pay_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contact" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Videobook">
+          <Key>
+            <PropertyRef Name="Video_ID" />
+          </Key>
+          <Property Name="Video_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Video_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Video_File" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Video_Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Video_Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AudioTable">
+          <Key>
+            <PropertyRef Name="Audio_id" />
+          </Key>
+          <Property Name="Audio_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Audio_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Audio_Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Audio_Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Audio_File" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -182,7 +408,111 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="carrers">
+            <EntityTypeMapping TypeName="LibraryDbModel.carrer">
+              <MappingFragment StoreEntitySet="carrer">
+                <ScalarProperty Name="carrer_desc" ColumnName="carrer_desc" />
+                <ScalarProperty Name="carrer_qualification" ColumnName="carrer_qualification" />
+                <ScalarProperty Name="carrer_position" ColumnName="carrer_position" />
+                <ScalarProperty Name="carrer_name" ColumnName="carrer_name" />
+                <ScalarProperty Name="carrer_id" ColumnName="carrer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacts">
+            <EntityTypeMapping TypeName="LibraryDbModel.contact">
+              <MappingFragment StoreEntitySet="contact">
+                <ScalarProperty Name="messages" ColumnName="messages" />
+                <ScalarProperty Name="person_email" ColumnName="person_email" />
+                <ScalarProperty Name="person_phone" ColumnName="person_phone" />
+                <ScalarProperty Name="person_name" ColumnName="person_name" />
+                <ScalarProperty Name="person_id" ColumnName="person_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="staffs">
+            <EntityTypeMapping TypeName="LibraryDbModel.staff">
+              <MappingFragment StoreEntitySet="staff">
+                <ScalarProperty Name="staff_password" ColumnName="staff_password" />
+                <ScalarProperty Name="staff_email" ColumnName="staff_email" />
+                <ScalarProperty Name="staff_phone" ColumnName="staff_phone" />
+                <ScalarProperty Name="staff_name" ColumnName="staff_name" />
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Availables">
+            <EntityTypeMapping TypeName="LibraryDbModel.Available">
+              <MappingFragment StoreEntitySet="Available">
+                <ScalarProperty Name="Item_fid" ColumnName="Item_fid" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Shelf_Number" ColumnName="Shelf_Number" />
+                <ScalarProperty Name="Collection" ColumnName="Collection" />
+                <ScalarProperty Name="Current_Location" ColumnName="Current_Location" />
+                <ScalarProperty Name="Item_Type" ColumnName="Item_Type" />
+                <ScalarProperty Name="Available_Id" ColumnName="Available_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leaves">
+            <EntityTypeMapping TypeName="LibraryDbModel.Leave">
+              <MappingFragment StoreEntitySet="Leave">
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="days" ColumnName="days" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="leave_id" ColumnName="leave_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Communities">
+            <EntityTypeMapping TypeName="LibraryDbModel.Community">
+              <MappingFragment StoreEntitySet="Community">
+                <ScalarProperty Name="com_price" ColumnName="com_price" />
+                <ScalarProperty Name="com_author" ColumnName="com_author" />
+                <ScalarProperty Name="com_desc" ColumnName="com_desc" />
+                <ScalarProperty Name="com_name" ColumnName="com_name" />
+                <ScalarProperty Name="com_id" ColumnName="com_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="LibraryDbModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="pay_id" ColumnName="pay_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videobooks">
+            <EntityTypeMapping TypeName="LibraryDbModel.Videobook">
+              <MappingFragment StoreEntitySet="Videobook">
+                <ScalarProperty Name="Video_Subject" ColumnName="Video_Subject" />
+                <ScalarProperty Name="Video_Description" ColumnName="Video_Description" />
+                <ScalarProperty Name="Video_File" ColumnName="Video_File" />
+                <ScalarProperty Name="Video_Name" ColumnName="Video_Name" />
+                <ScalarProperty Name="Video_ID" ColumnName="Video_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AudioTables">
+            <EntityTypeMapping TypeName="LibraryDbModel.AudioTable">
+              <MappingFragment StoreEntitySet="AudioTable">
+                <ScalarProperty Name="Audio_File" ColumnName="Audio_File" />
+                <ScalarProperty Name="Audio_Subject" ColumnName="Audio_Subject" />
+                <ScalarProperty Name="Audio_Description" ColumnName="Audio_Description" />
+                <ScalarProperty Name="Audio_Name" ColumnName="Audio_Name" />
+                <ScalarProperty Name="Audio_id" ColumnName="Audio_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

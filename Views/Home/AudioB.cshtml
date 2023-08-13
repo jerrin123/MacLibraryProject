@@ -1,0 +1,130 @@
+﻿@model MacLibraryProject.Models.AudioModel
+
+@{
+    ViewBag.Title = "AudioB";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <link href="~/fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="~/fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
+    <link href="~/fonts/fontawesome-webfont.eot" rel="stylesheet">
+    <link href="~/fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="~/fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
+    <link href="~/fonts/fontawesome-webfont.eot" rel="stylesheet">
+    <link href="~/Content/User/css/audio.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- inner page section -->
+    <!-- end inner page section -->
+    <section class="product_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Audio <span>Books</span>
+                </h2>
+            </div>
+
+            <div class="container">
+
+                <a href="@Url.Action("AudioB","Home")" class="btn btn-danger"> AUdio Book </a>
+                <a href="@Url.Action("VideoB","Home")" class="btn btn-danger"> Video Book </a>
+
+                <a href="@Url.Action("","Home")" class="btn btn-danger"> Question Bank </a>
+
+
+
+
+            </div>
+            <div class="row " style="margin-right:20px;">
+                <div class="col">
+                    @foreach (var o in Model.Aid)
+                    {
+
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img class="card-img-top" src="https://mdbootstrap.com/wp-content/uploads/2019/02/flam.jpg"
+                                     alt="Card image cap">
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-center">
+
+                                <h5 class="h5 font-weight-bold"><a href="#" target="_blank">@o.Audio_Name</a></h5>
+                                <p class="mb-0">@o.Audio_Description</p>
+                                <p class="mb-0">@o.Audio_Subject</p>
+
+                                <audio controls oncontextmenu="return false;">
+            <source src="@Url.Content(o.Audio_File)" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+                               
+
+
+                            </div>
+                        </div>
+                    }
+                    </div>
+                    
+
+            </div>
+            </div>
+
+                @*@foreach (var o in Model.Vid)*@
+               
+
+
+                    <!-- Content -->
+                    <!--<div class="container d-flex justify-content-center my-4 mb-5">
+
+                        <div id="mobile-box">-->
+
+                            <!-- Card -->
+                            
+                                   
+                               
+                            @*<div class="card">
+                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                    <img class="card-img-top" src="https://mdbootstrap.com/wp-content/uploads/2019/02/flam.jpg"
+                                         alt="Card image cap">
+                                    <a href="#!">
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                    </a>
+                                </div>
+                                <div class="card-body text-center">
+
+                                    <h5 class="h5 font-weight-bold"><a href="#" target="_blank">@o.Audio_Name</a></h5>
+                                    <p class="mb-0">@o.Audio_Description</p>
+                                    <p class="mb-0">@o.Audio_Subject</p>
+
+                                    <audio controls oncontextmenu="return false;">
+                                        <source src="@Url.Content(o.Audio_File)" type="audio/mp3">
+                                        Your browser does not support the audio element.
+                                    </audio>
+
+            
+
+                                </div>
+                            </div>*@
+                            <!-- Card -->
+                        @*</div>
+                    </div>*@
+                    <!-- Content -->
+                }
+
+
+            @*</div>*@
+            @*<div class="btn-box">
+                <a href="@Url.Action("Index","Home")">
+                    Back to Home
+                </a>
+            </div>*@
+        @*</div>*@
+    </section>
+</body>
+</html>
+
+

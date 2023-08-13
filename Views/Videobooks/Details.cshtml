@@ -1,0 +1,52 @@
+﻿@model MacLibraryProject.Models.Videobook
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Videobook</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Video_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Video_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Video_File)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Video_File)*@
+            <img src="@Url.Content(Model.Video_File)" width="50px" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Video_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Video_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Video_Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Video_Subject)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Video_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

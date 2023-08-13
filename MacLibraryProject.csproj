@@ -56,6 +56,9 @@
     <Reference Include="PdfiumViewer, Version=2.13.0.0, Culture=neutral, PublicKeyToken=91e4789cfb0609e0, processorArchitecture=MSIL">
       <HintPath>packages\PdfiumViewer.2.13.0.0\lib\net20\PdfiumViewer.dll</HintPath>
     </Reference>
+    <Reference Include="Razorpay, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Razorpay.3.0.2\lib\net45\Razorpay.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -133,11 +136,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\AudioTablesController.cs" />
+    <Compile Include="Controllers\AvailablesController.cs" />
+    <Compile Include="Controllers\carrersController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CommunitiesController.cs" />
+    <Compile Include="Controllers\contactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
-    <Compile Include="Controllers\PdfController.cs" />
+    <Compile Include="Controllers\LeavesController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\staffsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\VideobooksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -145,13 +156,32 @@
     <Compile Include="Models\Admin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AudioModel.cs" />
+    <Compile Include="Models\AudioTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Available.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\carrer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Community.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\contact.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Item.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ItemModel.cs" />
+    <Compile Include="Models\Leave.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -167,9 +197,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Payment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\staff.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Videobook.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VideoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +246,8 @@
     <Content Include="Content\User\css\niceCountryInput.css" />
     <Content Include="Content\User\css\owl.carousel.min.css" />
     <Content Include="Content\User\css\responsive.css" />
+    <Content Include="Content\User\css\audio.css" />
+    <Content Include="Content\User\css\this.css" />
     <Content Include="Content\User\css\style.css" />
     <Content Include="Content\User\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\User\images\about_img.jpg" />
@@ -214,10 +256,19 @@
     <Content Include="Content\User\images\blog1.jpg" />
     <Content Include="Content\User\images\blog2.jpg" />
     <Content Include="Content\User\images\blog3.jpg" />
+    <Content Include="Content\User\images\books-education-school-literature.jpg" />
+    <Content Include="Content\User\images\cloud4c-company-contact-1Desktop %281%29.jpg" />
+    <Content Include="Content\User\images\CNTCT.jpg" />
+    <Content Include="Content\User\images\header.jpg" />
     <Content Include="Content\User\images\img1.png" />
     <Content Include="Content\User\images\img2.png" />
+    <Content Include="Content\User\images\IMG20220915135451.jpg" />
+    <Content Include="Content\User\images\IMG_20221216_103659~2.jpg" />
     <Content Include="Content\User\images\loading.gif" />
+    <Content Include="Content\User\images\mlic_logo %281%29.png" />
     <Content Include="Content\User\images\play_icon.png" />
+    <Content Include="Content\User\images\portfolio-2 %282%29.jpg" />
+    <Content Include="Content\User\images\portfolio-4.jpg" />
     <Content Include="Content\User\images\service1.jpg" />
     <Content Include="Content\User\images\service2.jpg" />
     <Content Include="Content\User\images\service3.jpg" />
@@ -234,9 +285,50 @@
     <Content Include="Content\User\js\jquery.nice-select.min.js" />
     <Content Include="Content\User\js\niceCountryInput.js" />
     <Content Include="Content\User\js\owl.carousel.min.js" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\lightbox.css" />
+    <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
+    <Content Include="images\5.jpg" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\close.png" />
+    <Content Include="images\footer.jpg" />
+    <Content Include="images\g1.jpg" />
+    <Content Include="images\g10.jpg" />
+    <Content Include="images\g11.jpg" />
+    <Content Include="images\g12.jpg" />
+    <Content Include="images\g2.jpg" />
+    <Content Include="images\g3.jpg" />
+    <Content Include="images\g4.jpg" />
+    <Content Include="images\g5.jpg" />
+    <Content Include="images\g6.jpg" />
+    <Content Include="images\g7.jpg" />
+    <Content Include="images\g8.jpg" />
+    <Content Include="images\g9.jpg" />
+    <Content Include="images\next.png" />
+    <Content Include="images\prev.png" />
+    <Content Include="images\t1.jpg" />
+    <Content Include="images\t2.jpg" />
+    <Content Include="images\t3.jpg" />
+    <Content Include="images\t4.jpg" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\easing.js" />
+    <Content Include="js\jquery-2.1.4.min.js" />
+    <Content Include="js\jquery.countup.js" />
+    <Content Include="js\jquery.waypoints.min.js" />
+    <Content Include="js\lightbox-plus-jquery.min.js" />
+    <Content Include="js\move-top.js" />
+    <Content Include="js\odometer.js" />
+    <Content Include="js\responsiveslides.min.js" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -247,12 +339,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap.esm.js" />
-    <Content Include="Scripts\bootstrap.esm.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\User\css\.DS_Store" />
     <Content Include="Content\User\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\User\fonts\fontawesome-webfont.ttf" />
@@ -287,6 +373,44 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Job Cv.pdf" />
+    <Content Include="Content\SCHEMESYLLABUS-OF-MCA-2020.pdf" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bookpurchasepolicy.pdf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -337,36 +461,77 @@
     <Content Include="Views\Items\Edit.cshtml" />
     <Content Include="Views\Items\Index.cshtml" />
     <Content Include="Views\Home\Items.cshtml" />
-    <Content Include="Views\Pdf\ViewPdf.cshtml" />
+    <Content Include="Views\carrers\Create.cshtml" />
+    <Content Include="Views\carrers\Delete.cshtml" />
+    <Content Include="Views\carrers\Details.cshtml" />
+    <Content Include="Views\carrers\Edit.cshtml" />
+    <Content Include="Views\carrers\Index.cshtml" />
+    <Content Include="Views\contacts\Create.cshtml" />
+    <Content Include="Views\contacts\Delete.cshtml" />
+    <Content Include="Views\contacts\Details.cshtml" />
+    <Content Include="Views\contacts\Edit.cshtml" />
+    <Content Include="Views\contacts\Index.cshtml" />
+    <Content Include="Views\staffs\SignUp.cshtml" />
+    <Content Include="Views\staffs\Delete.cshtml" />
+    <Content Include="Views\staffs\Details.cshtml" />
+    <Content Include="Views\staffs\Edit.cshtml" />
+    <Content Include="Views\staffs\Index.cshtml" />
+    <Content Include="Views\Home\repo.cshtml" />
+    <Content Include="Views\Availables\Create.cshtml" />
+    <Content Include="Views\Availables\Delete.cshtml" />
+    <Content Include="Views\Availables\Details.cshtml" />
+    <Content Include="Views\Availables\Edit.cshtml" />
+    <Content Include="Views\Availables\Index.cshtml" />
+    <Content Include="Views\Home\Books.cshtml" />
+    <Content Include="Views\Home\Guidlines.cshtml" />
+    <Content Include="Views\Home\Commitee.cshtml" />
+    <Content Include="Views\Home\Service.cshtml" />
+    <Content Include="Views\staffs\LogIn.cshtml" />
+    <Content Include="Views\staffs\Dash.cshtml" />
+    <Content Include="Views\Leaves\Create.cshtml" />
+    <Content Include="Views\Leaves\Delete.cshtml" />
+    <Content Include="Views\Leaves\Details.cshtml" />
+    <Content Include="Views\Leaves\Edit.cshtml" />
+    <Content Include="Views\Leaves\Index.cshtml" />
+    <Content Include="Views\Home\Stream.cshtml" />
+    <Content Include="Views\Home\userd.cshtml" />
+    <Content Include="Views\Home\com.cshtml" />
+    <Content Include="Views\Communities\Create.cshtml" />
+    <Content Include="Views\Communities\Delete.cshtml" />
+    <Content Include="Views\Communities\Details.cshtml" />
+    <Content Include="Views\Communities\Edit.cshtml" />
+    <Content Include="Views\Communities\Index.cshtml" />
+    <Content Include="Views\Payments\Create.cshtml" />
+    <Content Include="Views\Payments\Delete.cshtml" />
+    <Content Include="Views\Payments\Details.cshtml" />
+    <Content Include="Views\Payments\Edit.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Payments\Success.cshtml" />
+    <Content Include="Views\Payments\Failed.cshtml" />
+    <Content Include="Views\Payments\PaymentPage.cshtml" />
+    <Content Include="Views\Videobooks\Create.cshtml" />
+    <Content Include="Views\Videobooks\Delete.cshtml" />
+    <Content Include="Views\Videobooks\Details.cshtml" />
+    <Content Include="Views\Videobooks\Edit.cshtml" />
+    <Content Include="Views\Videobooks\Index.cshtml" />
+    <Content Include="Views\Home\VideoB.cshtml" />
+    <Content Include="Views\AudioTables\Create.cshtml" />
+    <Content Include="Views\AudioTables\Delete.cshtml" />
+    <Content Include="Views\AudioTables\Details.cshtml" />
+    <Content Include="Views\AudioTables\Edit.cshtml" />
+    <Content Include="Views\AudioTables\Index.cshtml" />
+    <Content Include="Views\Home\AudioB.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Audio\" />
+    <Folder Include="NewPic\" />
+    <Folder Include="OutPic\" />
     <Folder Include="ProPic\" />
+    <Folder Include="Vdo\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.rtl.min.css.map" />
-    <Content Include="Content\bootstrap.rtl.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
-    <Content Include="Content\bootstrap-utilities.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.esm.min.js.map" />
-    <Content Include="Scripts\bootstrap.esm.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>

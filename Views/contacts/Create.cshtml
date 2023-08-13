@@ -1,0 +1,165 @@
+﻿@model MacLibraryProject.Models.contact
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+
+    <style>
+        .body {
+            background-color:maroon;
+        }
+        .form-horizontal {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color:black;
+            background-color:white;
+        }
+
+        h4 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .control-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: border-color 0.3s;
+        }
+
+            .form-control:focus {
+                border-color: #007bff;
+                outline: none;
+                box-shadow: none;
+            }
+
+        .text-danger {
+            color: #dc3545;
+        }
+
+        .btn-default {
+            background-color: #f00f0f;
+            color: #333;
+        }
+
+            .btn-default:hover {
+                background-color: #e0e0e0;
+                color: #333;
+            }
+
+        .col-md-offset-2 {
+            margin-left: 16.666667%;
+        }
+    </style>
+
+</head>
+<body>
+    @*<h2>Creat</h2>*@
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @*<img src="~/Content/User/images/cloud4c-company-contact-1Desktop (1).jpg"/>*@
+        </div>
+        <br />
+        <br />
+
+        <div class="form-horizontal">
+            <h1 style="color:black;font-family:serif;text-align:center;">CONTACT</h1>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.person_name, "Name", new { @class = "control-label col-md-2" })
+
+                @*@Html.LabelFor(model => model.person_name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.person_name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.person_name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.person_phone, "Phone", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.person_phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.person_phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.person_email, "Email", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.person_email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.person_email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.messages, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.messages, "Message", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.messages, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+
+
+    }
+    <br />
+    <div class="row w-100">
+        <div class="col-lg-6 my-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3936.546498766547!2d76.58210557408789!3d9.373337483505821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06247260536859%3A0x47b80c2e1ce414bd!2sMACFAST%20%7C%20Tiruvalla!5e0!3m2!1sen!2sin!4v1691559722920!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-lg-6 my-4 d-flex align-items-center">
+            <div>
+                <h1 style="font-family:serif;">OUR ADDRESS</h1>
+                <span class="fa fa-location-arrow"></span>
+                <br />
+                <p style="text-align:justify-all;font-family:serif;">
+                    Mar Athanasios College for Advanced Studies Tiruvalla (MACFAST),
+                    Pathanamthitta, Kerala, India. Pin-689 101
+                </p>
+                <h1 style="font-family:serif;">Email US</h1>
+                <span class="fa fa-mail-forward"></span>
+
+                <p style="text-align:justify-all;font-family:serif;">
+                    library@macfast.org
+                </p>
+                <h1 style="font-family:serif;">CALL US</h1>
+                <span  class="fa fa-phone"></span>
+
+                <p style="text-align:justify-all;font-family:serif;">
+                    0469-2730305
+
+
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<@*div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

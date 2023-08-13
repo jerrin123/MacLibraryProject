@@ -1,0 +1,86 @@
+﻿/*--------------------------------------------------------------------- 
+File Name: style.css 
+---------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------- 
+import Fonts -
+--------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900&display=swap');
+
+/*****---------------------------------------- 1) 
+ 2) font-family: 'Poppins', sans-serif;
+ ----------------------------------------*****/
+
+
+/*--------------------------------------------------------------------- 
+import Files 
+---------------------------------------------------------------------*/
+
+@import url(normalize.css);
+@import url(icomoon.css);
+@import url(font-awesome.min.css);
+@import url(nice-select.css);
+
+/*--------------------------------------------------------------------- 
+basic 
+---------------------------------------------------------------------*/
+
+
+
+
+
+/* Apply styles to the form container */
+/* Apply background image to the body */
+
+
+/* Apply styles to the form container */
+body {
+    font-family: serif;
+    font-style: normal;
+    /*    background-image: url();
+*/ background-size: cover; /* Scale the image to cover the entire background */
+    background-image: url(https://wallpapercave.com/dwp1x/wp12630151.jpg);
+/*    height:
+*/        /*2background-repeat: no-repeat;*/ /* Prevent image repetition */
+}
+.form-horizontal {
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add background image */
+    background-image: url(../images/books-education-school-literature.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Apply styles to the form labels */
+.control-label {
+    font-weight: bold;
+}
+
+/* Apply styles to the form input fields */
+.form-control {
+    width: 50%;
+}
+
+/* Apply styles to the submit button */
+.btn-default {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-default:hover {
+        background-color: #0056b3;
+    }
+

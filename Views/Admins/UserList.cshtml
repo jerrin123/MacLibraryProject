@@ -4,36 +4,108 @@
     ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
 }
+<head>
+    <style>
+        /* Add styles for the table */
+        .styled-table {
+            margin-left: 30px; /* Adjust the margin as needed */
+            border-collapse: collapse;
+            width: 80%; /* Adjust the width as needed */
+        }
 
-<h2>UserList</h2>
+            .styled-table th,
+            .styled-table td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+                font-family: serif;
+                color: black;
+            }
 
-<p>
+            .styled-table th {
+                background-color: maroon;
+            }
+
+            .styled-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+    </style>
+</head>
+<body>
+ 
     @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.User_Firstname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User_Lastname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User_Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User_Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User_Contact)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User_Department)
-        </th>
-        <th></th>
-    </tr>
+    </p>
+    <center>
+        <div>
+            <br />
+            <br />
+            <br />
 
-@foreach (var item in Model) {
+
+            <h2 style="text-align:center; color:red;">UserList</h2>
+            <hr />
+            <p>
+        </div>
+        </center>
+        <table class="styled-table">
+
+            <tr>
+                <th>
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
+                    @Html.DisplayNameFor(model => model.User_Firstname)
+                </th>
+                <th>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    @Html.DisplayNameFor(model => model.User_Lastname)
+                </th>
+                <th>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    @Html.DisplayNameFor(model => model.User_Email)
+                </th>
+                <th>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    @Html.DisplayNameFor(model => model.User_Password)
+                </th>
+                <th>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    @Html.DisplayNameFor(model => model.User_Contact)
+                </th>
+                <th>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    @Html.DisplayNameFor(model => model.User_Department)
+                </th>
+                <th></th>
+            </tr>
+</body>
+
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.User_Firstname)
@@ -54,11 +126,12 @@
             @Html.DisplayFor(modelItem => item.User_Department)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.User_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.User_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.User_Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.User_Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.User_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.User_Id })
         </td>
     </tr>
 }
 
-</table>
+        </table>
+    </center>

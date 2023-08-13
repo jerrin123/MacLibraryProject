@@ -1,0 +1,74 @@
+﻿@model MacLibraryProject.Models.StreamModel
+
+@{
+    ViewBag.Title = "Stream";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- inner page section -->
+<section class="inner_page_head">
+    <div class="container_fuild">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <h3>Collections</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end inner page section -->
+<section class="product_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Our <span>Outlets</span>
+            </h2>
+        </div>
+
+        <div class="container">
+            @foreach (var c in Model.dep)
+            {
+
+
+
+                <a href="@Url.Action("Stream", "Home", new {id=c.branch_id })" class="btn btn-outline-danger"> @c.branch_name</a>
+            }
+        </div>
+        <div class="row">
+            @foreach (var o in Model.st)
+            {
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <div class="option_container">
+                            <div class="options">
+                                <a href="" class="option1">
+                                    @o.stream_name
+                                </a>
+                                @*<a href="@Url.Action("Create", "Dinetables", new { id = o.stream_id})" class="option2">
+                                    Book A Table
+                                </a>*@
+                            </div>
+                        </div>
+                        <div class="img-box rounded" style="background-color:aliceblue">
+                            <img class="rounded" src="@Url.Content(o.stream_pic)" height="200px;" width="180px; " />;
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                @o.stream_desc
+                            </h5>
+                           
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <div class="btn-box">
+            <a href="@Url.Action("Index","Home")">
+                Back to Home
+            </a>
+        </div>
+    </div>
+</section>
+

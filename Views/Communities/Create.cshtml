@@ -1,0 +1,80 @@
+﻿@model MacLibraryProject.Models.Community
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Your Page Title</title>
+
+    <!-- Link to your external CSS stylesheet -->
+    <link rel="stylesheet" href="~/Content/User/css/this.css">
+
+    <!-- Other meta tags, scripts, or CSS links can also be included here -->
+
+</head>
+<body
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @*<div>
+        <img src="https://wallpapercave.com/dwp1x/wp12630151.jpg" style="height: auto; width: 100%;" /> 
+    </div*@>
+
+    <div class="form-horizontal">
+        <h4>Community</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.com_name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.com_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.com_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.com_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.com_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.com_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.com_author, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.com_author, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.com_author, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.com_price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.com_price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.com_price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <center>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="submit" class="btn btn-default" />
+                </div>
+            </div>
+        </center>
+    </div>
+
+}
+    </body>
+<center>
+    
+   
+    <div>
+            @Html.ActionLink("GO BACK", "Home")  
+        </div>
+</center>

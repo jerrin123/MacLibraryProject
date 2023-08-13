@@ -26,10 +26,27 @@ namespace MacLibraryProject.Controllers
         [HttpPost]
         public ActionResult LogIn(User a)
         {
+
+            //var cust = db.Users.Where(x => x.User_Email == a.User_Email && x.User_Password == a.User_Password).Count();
+            //var id = db.Users.Where(x => x.User_Email == a.User_Email && x.User_Email == a.User_Email).Select(v => v.User_Id).FirstOrDefault();
+            //var idd = db.Users.FirstOrDefault(x => x.User_Email == x.User_Email && x.User_Password == a.User_Password);
+            //Session["CID"] = id;
+            //Session["CIDD"] = idd;
+            //if (cust > 0)
+            //{
+            //    Session["ID"] = cust;
+            //    //Response.Write("<script>alert('Invalid Username/Password'); </script>");
+            //    return RedirectToAction("userd", "Home");
+            //}
+            //else
+            //{
+
+            //    return View();
+            //}
             int res = db.Users.Where(x => x.User_Email == a.User_Email && x.User_Password == a.User_Password).Count();
             if (res == 1)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("userd", "Home");
             }
             else
             {
@@ -37,7 +54,11 @@ namespace MacLibraryProject.Controllers
                 return View();
             }
         }
-
+        public ActionResult Logout()
+        {
+            Session["ID"] = null;
+            return RedirectToAction("Index", "Home");
+        }
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {

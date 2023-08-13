@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MacLibraryProject.Models.staff>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.staff_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.staff_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.staff_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.staff_password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.staff_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.staff_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.staff_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.staff_password)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.staff_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.staff_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.staff_id })
+        </td>
+    </tr>
+}
+
+</table>

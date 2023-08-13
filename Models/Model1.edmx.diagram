@@ -10,7 +10,17 @@
         <EntityTypeShape EntityType="LibraryDbModel.Category" Width="1.5" PointX="0.75" PointY="1.375" />
         <EntityTypeShape EntityType="LibraryDbModel.Item" Width="1.5" PointX="3" PointY="1" />
         <AssociationConnector Association="LibraryDbModel.FK_Item_Category" />
-      </Diagram>
+        <EntityTypeShape EntityType="LibraryDbModel.carrer" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LibraryDbModel.contact" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LibraryDbModel.staff" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryDbModel.Available" Width="1.5" PointX="5.25" PointY="1" />
+        <AssociationConnector Association="LibraryDbModel.FK_Available_Item" />
+        <EntityTypeShape EntityType="LibraryDbModel.Leave" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="LibraryDbModel.Community" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="LibraryDbModel.Payment" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="LibraryDbModel.Videobook" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="LibraryDbModel.AudioTable" Width="1.5" PointX="9.375" PointY="6.75" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

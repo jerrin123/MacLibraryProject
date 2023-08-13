@@ -1,0 +1,275 @@
+﻿
+@{
+    ViewBag.Title = "userd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Andragogy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- js -->
+    <script type="~/text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!-- font-awesome-icons -->
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <link href="~/fonts.googleapis.com/css?family=Oswald:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href='~/fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header_address_mail">
+        <div class="container">
+            <div class="agileits_w3layouts_header_address_grid">
+                <ul>
+                    <li><a href="mailto:info@example.com">macfast@lib.com</a></li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i></li>
+                    <li>+91 03938292</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- header -->
+    <!-- banner -->
+    <!-- banner-slider -->
+    <div class="banner-slider">
+        <div class="slider">
+            <div class="callbacks_container">
+                <ul class="rslides callbacks callbacks1" id="slider4">
+                    <li>
+                        <div class="agileits-banner-info">
+                            <div class="container">
+                                <div class="w3ls-banner-shadow">
+                                    <h3>THE PLACE FOR HAPPY AND CREATIVE LEARNING</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+            <script src="~/js/responsiveslides.min.js"></script>
+            <script>
+                // You can also use "$(window).load(function() {"
+                $(function () {
+                    // Slideshow 4
+                    $("#slider4").responsiveSlides({
+                        auto: true,
+                        pager: true,
+                        nav: false,
+                        speed: 500,
+                        namespace: "callbacks",
+                        before: function () {
+                            $('.events').append("<li>before event fired.</li>");
+                        },
+                        after: function () {
+                            $('.events').append("<li>after event fired.</li>");
+                        }
+                    });
+
+                });
+            </script>
+            <!--banner Slider starts Here-->
+        </div>
+    </div>
+    <!-- //banner-slider -->
+    <!-- statistics -->
+    <div class="statistics">
+        <div class="container">
+            <div class="col-md-6 w3layouts_statistics_grid_left">
+                <div class="w3_statistics_grid_left_grid">
+                    <img src="https://library.macfast.org/assets/img/portfolio/portfolio-2.jpg" alt=" " class="img-responsive" />
+
+                </div>
+            </div>
+            <div class="col-md-6 w3layouts_statistics_grid_right">
+                <h4>MACFAST Library and Information Centre has been on track since the inception of the college at 2001.</h4>
+                <div class="col-md-4 w3_stats_grid">
+                    <h3 id="w3l_stats1" class="odometer"></h3>
+                    <p>Experience</p>
+                    <div class="w3layouts_stats_grid1">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 w3_stats_grid">
+                    <h3 id="w3l_stats2" class="odometer"></h3>
+                    <p>Awards</p>
+                    <div class="w3layouts_stats_grid1">
+                        <i class="fa fa-trophy" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 w3_stats_grid">
+                    <h3 id="w3l_stats3" class="odometer"></h3>
+                    <p>Students</p>
+                    <div class="w3layouts_stats_grid1">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"> </div>
+            <br />
+            <center>
+                <a href="@Url.Action("Items","Home")" class="btn btn-danger" style="margin-right:20px;">BROWSE CATALOGUE</a>
+                <a href="@Url.Action("Video","Home")" class="btn btn-danger" style="margin-right:20px;">DIGITAL REPOSTORY</a><!-- //statistics -->
+                <a href="@Url.Action("Create","Communities")" class="btn btn-danger" style="margin-right:20px;">ADD BOOK IN STUDENT COMMUNITY</a><!-- //statistics -->
+
+            </center>
+        </div>
+    </div>
+   
+    <!-- odometer-script -->
+    <script src="~/js/odometer.js"></script>
+    <script>
+        window.odometerOptions = {
+            format: '(ddd).dd'
+        };
+    </script>
+    <script>
+        setTimeout(function () {
+            jQuery('#w3l_stats1').html(25);
+        }, 1500);
+    </script>
+    <script>
+        setTimeout(function () {
+            jQuery('#w3l_stats2').html(330);
+        }, 1500);
+    </script>
+    <script>
+        setTimeout(function () {
+            jQuery('#w3l_stats3').html(542);
+        }, 1500);
+    </script>
+    <!-- //odometer-script -->
+    <!-- featured-services -->
+    <div class="services">
+        <div class="container">
+            <div class="w3layouts_header">
+
+                <h5>PORTAL  <span>BENEFITS</span></h5>
+                <p><span><i class="fa fa-book" aria-hidden="true"></i></span></p>
+            </div>
+            <div class="w3layouts_skills_grids w3layouts_featured_services_grids">
+                <div class="col-md-6 w3_featured_services_left">
+                    <div class="w3_featured_services_left_grid">
+                        <div class="col-xs-4 w3_featured_services_left_gridl">
+                            <div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
+                                <i class="hi-icon fa-cubes"> </i>
+                            </div>
+                        </div>
+                        <div class="col-xs-8 w3_featured_services_left_gridr">
+                            <h4>lacinia vehicula </h4>
+                            <p>Maecenas bibendum nisi purus, in ullamcorper nisl aliquam id.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="w3_featured_services_left_grid">
+                        <div class="col-xs-4 w3_featured_services_left_gridl">
+                            <div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
+                                <i class="hi-icon fa-globe"> </i>
+                            </div>
+                        </div>
+                        <div class="col-xs-8 w3_featured_services_left_gridr">
+                            <h4>tincidunt urna </h4>
+                            <p>Maecenas bibendum nisi purus, in ullamcorper nisl aliquam id.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="col-md-6 w3_featured_services_right">
+                    <img src="~/images/3.jpg" alt=" " class="img-responsive" />
+                </div>
+                <div class="col-md-6 w3_featured_services_right">
+                    <img src="~/images/4.jpg" alt=" " class="img-responsive" />
+                </div>
+                <div class="col-md-6 w3_featured_services_left">
+                    <div class="w3_featured_services_left_grid">
+                        <div class="col-xs-4 w3_featured_services_left_gridl">
+                            <div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
+                                <i class="hi-icon fa-gear"> </i>
+                            </div>
+                        </div>
+                        <div class="col-xs-8 w3_featured_services_left_gridr">
+                            <h4>nullam elementum </h4>
+                            <p>Maecenas bibendum nisi purus, in ullamcorper nisl aliquam id.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="w3_featured_services_left_grid">
+                        <div class="col-xs-4 w3_featured_services_left_gridl">
+                            <div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
+                                <i class="hi-icon fa-hotel"> </i>
+                            </div>
+                        </div>
+                        <div class="col-xs-8 w3_featured_services_left_gridr">
+                            <h4>ullamcorper nisl</h4>
+                            <p>Maecenas bibendum nisi purus, in ullamcorper nisl aliquam id.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //featured-services -->
+    <!-- start-smooth-scrolling -->
+    <script type="text/javascript" src="~/js/move-top.js"></script>
+    <script type="text/javascript" src="~/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smooth-scrolling -->
+    <!-- for bootstrap working -->
+    <script src="~/js/bootstrap.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+</body>
+</html>
+

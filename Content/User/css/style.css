@@ -1,4 +1,4 @@
-/*--------------------------------------------------------------------- 
+﻿/*--------------------------------------------------------------------- 
 File Name: style.css 
 ---------------------------------------------------------------------*/
 
@@ -79,7 +79,7 @@ h6 {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 h2 {
@@ -433,7 +433,7 @@ button {
 /** banner section **/
 
 .full_bg {
-    background: url(../images/banner.jpg);
+    background: url(../images/portfolio-4.jpg);
     height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
@@ -668,12 +668,122 @@ button {
 
 /** end appointment  **/
 
+/** Questions  **/
+
+
+/*body {
+    margin-top: 20px;
+    
+}*/
+
+.section_padding_130 {
+    padding-top: 130px;
+    padding-bottom: 130px;
+}
+
+.faq_area {
+    position: relative;
+    z-index: 1;
+    background-color: #f5f5ff;
+}
+
+.faq-accordian {
+    position: relative;
+    z-index: 1;
+}
+
+    .faq-accordian .card {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 1.5rem;
+    }
+
+        .faq-accordian .card:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-accordian .card .card-header {
+            background-color: #ffffff;
+            padding: 0;
+            border-bottom-color: #ebebeb;
+        }
+
+            .faq-accordian .card .card-header h6 {
+                cursor: pointer;
+                padding: 1.75rem 2rem;
+                color: #3f43fd;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -ms-grid-row-align: center;
+                align-items: center;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+            }
+
+                .faq-accordian .card .card-header h6 span {
+                    font-size: 1.5rem;
+                }
+
+                .faq-accordian .card .card-header h6.collapsed {
+                    color: #070a57;
+                }
+
+                    .faq-accordian .card .card-header h6.collapsed span {
+                        -webkit-transform: rotate(-180deg);
+                        transform: rotate(-180deg);
+                    }
+
+        .faq-accordian .card .card-body {
+            padding: 1.75rem 2rem;
+        }
+
+            .faq-accordian .card .card-body p:last-child {
+                margin-bottom: 0;
+            }
+
+@media only screen and (max-width: 575px) {
+    .support-button p {
+        font-size: 14px;
+    }
+}
+
+.support-button i {
+    color: #3f43fd;
+    font-size: 1.25rem;
+}
+
+@media only screen and (max-width: 575px) {
+    .support-button i {
+        font-size: 1rem;
+    }
+}
+
+.support-button a {
+    text-transform: capitalize;
+    color: #2ecc71;
+}
+
+@media only screen and (max-width: 575px) {
+    .support-button a {
+        font-size: 13px;
+    }
+}
+/** end Questions  **/
+/** Stats  **/
+
+
+/** Stats  **/
 
 /** services section **/
 
 .services {
-    background: #fff;
+    background: #000;
     padding-top: 90px;
+    color:white;
 }
 
 .services .titlepage {
@@ -724,10 +834,11 @@ button {
 /** priceing section **/
 
 .priceing {
-    background: #2d2d2d;
+    background: #000;
     padding-bottom: 60px;
     padding-top: 90px;
     margin-top: 90px;
+    color:white;
 }
 
 .priceing .titlepage h2 {
@@ -760,7 +871,7 @@ button {
 }
 
 .our_pri {
-    background: #fdc001;
+    background: #930707;
     padding: 30px 20px 45px 20px;
     position: relative;
     z-index: 99;
@@ -807,7 +918,35 @@ button {
 
 /** end priceing section **/
 
+/** Gallery **/
 
+
+<head >
+<style >
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-lg-4 {
+    flex: 1;
+    padding: 10px;
+}
+
+    .col-lg-4 img {
+        max-width: 100%;
+        height: auto;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .col-lg-4 img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+/** Galleryn **/
+/** Gallzz **/
+/** Galleryn **/
 /** blog section **/
 
 .blog {
@@ -877,7 +1016,7 @@ button {
 /** about section **/
 
 .about {
-    background: #fdc001;
+    background: #000000;
     padding-top: 90px;
     padding-bottom: 90px;
 }

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "repo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>About Digital Repo</title>
+   
+    </head>
+    <body>
+        <br />
+        <br />
+            <div>
+                <img src="~/Content/User/images/header.jpg" alt="Image">
+            </div>
+            <center>
+                <div class="container">
+                    <div class="content">
+
+                        <h2>QUOTE OF THE DAY</h2>
+
+                        <p>
+
+                            It is not my intention to do away with government. It is rather to make it work -work with us, not over us; stand by our side, not ride on our back. Government can and must provide opportunity, not smother it; foster productivity, not stifle it. This Administration's objective will be a healthy, vigorous, growing economy. ~ Ronald Reagan
+                        </p>
+                        <p>
+                        </p>
+                    </div>
+                    <div class="image">
+                        @*<img src="~/Content/User/images/portfolio-4.jpg" alt="Image">*@
+                    </div>
+                </div>
+                <hr />
+                <a href="@Url.Action("Items","Home")" class="btn btn-danger">Browse Catalogue</a>
+                <a href="@Url.Action("Video","Home")" class="btn btn-danger">Digital Repository</a>
+
+            </center>
+    </body>
+</html>
+
+
+

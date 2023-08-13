@@ -48,7 +48,7 @@ namespace MacLibraryProject.Controllers
             }
             else
             {
-                Response.Write("<script>alert('Invalid Username/Password'); </script>");
+                //Response.Write("<script>alert('Invalid Username/Password'); </script>");
                 return View();
             }
         }

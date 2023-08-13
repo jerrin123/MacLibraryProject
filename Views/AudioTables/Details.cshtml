@@ -1,0 +1,55 @@
+﻿@model MacLibraryProject.Models.AudioTable
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AudioTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Audio_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Audio_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Audio_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Audio_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Audio_Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Audio_Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Audio_File)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Audio_File)*@
+            <audio controls>
+                <source src="@Url.Content(Model.Audio_File)" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Audio_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

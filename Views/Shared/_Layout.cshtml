@@ -41,22 +41,89 @@
             <div class="row d_flex">
                 <div class=" col-md-3 col-sm-3">
                     <div class="logo">
-                        <a href="index.html">MACFAST</a>
+                        @*<a href="index.html">MACFAST</a>*@
+                        <img src="~/Content/User/images/mlic_logo (1).png" />
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-9">
-                    <div class="navbar-area">
+                    <div class="navbar-area"> 
                         <nav class="site-navbar">
                             <ul>
-                                <li><a class="active" href="index.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="@Url.Action("Items","Home")" ">Digital_Repo</a></li>
-                                <li><a href="@Url.Action("LogIn","Users")">Login</a></li>
+                                <li><a class="active" href="@Url.Action("Index","Home")" style="font-family:serif;font-size:small;">Home</a></li>
+
+
+                                @*<li><a href="@Url.Action("About","Home")" style="font-family:serif;font-size:large;">About</a></li>*@
+                                <li class="nav-item dropdown">
+                                    <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
+                                        About
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                        <a class="dropdown-item" href="@Url.Action("About","Home")">KNOW MLIC</a>
+                                        <a class="dropdown-item" href="@Url.Action("Guidlines","Home")">LIBRARY GUIDLINES</a>
+                                        <a class="dropdown-item" href="@Url.Action("Commitee","Home")">LIBRARY COMMITEE</a>
+                                        <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY COLLECTION</a>
+                                        <a class="dropdown-item" href="@Url.Action("Service","Home")">LIBRARY SERVICE</a>
+                                        <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY STAFF</a>
+
+
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
+                                        EResources
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                        <a class="dropdown-item" href="https://www.proquest.com/business/index?accountid=143324">ProQuest</a>
+                                        <a class="dropdown-item" href="https://search.ebscohost.com/">EBSCO</a>
+                                        @*<a class="dropdown-item" href="@Url.Action("Commitee","Home")"></a>
+                <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY COLLECTION</a>
+                <a class="dropdown-item" href="@Url.Action("Service","Home")">LIBRARY SERVICE</a>
+                <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY STAFF</a>*@
+
+
+                                    </div>
+                                </li>
+                                <li><a href="@Url.Action("Login","users")" style="font-family:serif;font-size:small;">Catlogue</a></li>
+                                <li class="nav-item dropdown">
+                                    <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
+                                        QuickLinks
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                        <a class="dropdown-item" href="https://opac.app/en/">WEB OPAC APPLICATION</a>
+                                        <a class="dropdown-item" href="https://macfast.org/macfast-journal/">JOURNAL OF SCIENCE AND TECHNOLOGY MANAGEMENT</a>
+
+                                        <a class="dropdown-item" href="~/Content/bookpurchasepolicy.pdf">BOOK PURCHASE PROCEDURE</a>
+
+
+
+                                    </div>
+                                </li>
+                                <li><a href="@Url.Action("LogIn","Users")" style="font-family:serif;font-size:small;">Login</a></li>
+
+                                <li >
+                                    @if (Session["ID"] != null)
+                                    {
+                                        <a href="@Url.Action("Index", "Home")" style="font-family:serif;font-size:small;">Logout</a>
+                                    }
+                                </li>
+
+
+
+
+
+
+
+
+
+
+
+
                                 @*<li><a href="">None </a></li>
-                                <li><a href="contact.html">Contact us</a></li>*@
+        <li><a href="contact.html">Contact us</a></li>*@
                                 <li class="d_none"><a href="@Url.Action("LogIn","Admins")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                                <li class="d_none"><a href=""><i class="fa fa-search" aria-hidden="true"></i></a></li>
+
                             </ul>
+
                             <button class="nav-toggler">
                                 <span></span>
                             </button>
@@ -76,8 +143,18 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="hedingh3 text_align_left">
-                                    <h3>About</h3>
-                                    <p> Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable sourc</p>
+                                    <h3 style="font-family:serif;">About MLIC</h3>
+                                    <p style="text-align:justify; font-family:serif;">
+                                        MACFAST Library and Information Centre 
+                                        is the treasure house of knowledge and 
+                                        information that support the academic 
+                                        pursuit of students and faculty members 
+                                        through timely acquisition of resources.
+                                        The library provides services to meet the
+                                        requirements of post graduate students, 
+                                        research students and faculty members.
+                                        Library Timing: 6:00 AM to 10:00 PM
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
@@ -88,38 +165,54 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-5">
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="hedingh3 text_align_left">
-                                    <h3>Menu</h3>
+                                    <h3 style="font-family:serif;">Useful Links</h3>
                                     <ul class="menu_footer">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="service.html">Service</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="contact.html">Contact us</a></li>
+                                        <li><a href="@Url.Action("Index","Home")" style="font-family:serif;">Home</a></li>
+
+                                        <li><a href="https://macfast.org/" style="font-family:serif; color:white;">Macfast College</a></li>
+                                        <li><a href="https://www.mgu.ac.in/" style="font-family: serif; color: white;">MG University</a></li>
+                                        <li><a href="https://www.aicte-india.org/" style="font-family: serif; color: white;">AICTE</a></li>
+                                    
+                                        @*<li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact us</a></li>*@
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="hedingh3  text_align_left">
-                                    <h3>Newsletter</h3>
-                                    <form id="colof" class="form_subscri">
-                                        <input class="newsl" placeholder="Email" type="text" name="Email">
-                                        <button class="subsci_btn">Subscribe</button>
-                                    </form>
-                                    <ul class="top_infomation">
-                                        <li>
-                                            <i class="fa fa-phone" aria-hidden="true"></i>
-                                            +01 1234567890
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                                            <a href="Javascript:void(0)">demo@gmail.com</a>
-                                        </li>
+                                    <h3 style="font-family:serif;">MENU</h3>
+                                    <ul class="menu_footer">
+                                        <li><a href="@Url.Action("About","Home")" style="font-family: serif; color: white;">About</a></li>
+
+                                        <li><a href="@Url.Action("Login","Users")" style="font-family: serif; color: white;">Catalogue</a></li>
+                                        <li><a href="@Url.Action("Create","contacts")" style="font-family: serif; color: white;">Contact</a></li>
+                                       
+                                        @*<li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact us</a></li>*@
                                     </ul>
                                 </div>
+                            </div>
+
+                            @*<form id="colof" class="form_subscri">*@
+                            @*<input class="newsl" placeholder="Email" type="text" name="Email">*@
+                            @*<button class="subsci_btn">Subscribe</button>*@
+                            @*</form>
+        <ul class="top_infomation">
+            <li>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                +01 1234567890*@
+                            @*</li>
+            <li>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <a href="Javascript:void(0)">demo@gmail.com</a>
+            </li>
+        </ul>*@
+                        </div>
                             </div>
                         </div>
                     </div>
@@ -132,15 +225,17 @@
                             <div class="follow text_align_center">
                                 <h3>Follow Us</h3>
                                 <ul class="social_icon ">
-                                    <li><a href="Javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="Javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="Javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    <li><a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.facebook.com/macfastofficial/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fmacfastofficial"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/macfastofficials/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.instagram.com/macfastofficial/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.youtube.com/channel/UC2hK3KCqXunIzjVHI-m5HCA"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <p>© 2020 All Rights Reserved. Design by <a href="https://html.design/"> Free html Templates</a></p>
+                            <p style="font-family:serif;">© Copyright © 2021 MACFAST. All Rights Reserved. Design by <a href="https://www.linkedin.com/in/jerrin-jacob23/" style="color:red; font-family:serif;"></>JERRIN JACOB </a></p>
                         </div>
                     </div>
                 </div>

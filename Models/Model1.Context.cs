@@ -29,5 +29,14 @@ namespace MacLibraryProject.Models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<carrer> carrers { get; set; }
+        public virtual DbSet<contact> contacts { get; set; }
+        public virtual DbSet<staff> staffs { get; set; }
+        public virtual DbSet<Available> Availables { get; set; }
+        public virtual DbSet<Leave> Leaves { get; set; }
+        public virtual DbSet<Community> Communities { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Videobook> Videobooks { get; set; }
+        public virtual DbSet<AudioTable> AudioTables { get; set; }
     }
 }

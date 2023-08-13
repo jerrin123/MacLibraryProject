@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MacLibraryProject.Models.AudioTable>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Audio_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Audio_Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Audio_Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Audio_File)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Audio_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Audio_Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Audio_Subject)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Audio_File)*@
+            <audio controls>
+                <source src="@Url.Content(item.Audio_File)" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Audio_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Audio_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Audio_id })
+        </td>
+    </tr>
+}
+
+</table>

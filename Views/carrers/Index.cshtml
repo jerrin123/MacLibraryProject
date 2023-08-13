@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MacLibraryProject.Models.carrer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.carrer_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carrer_position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carrer_qualification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carrer_desc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.carrer_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carrer_position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carrer_qualification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carrer_desc)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.carrer_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.carrer_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.carrer_id })*@
+            <a href="mailto:jerrinjacob1999@gmail.com" class="btn btn-outline-dark">Send CV</a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,75 @@
+﻿@model MacLibraryProject.Models.Available
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Available</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Item_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Current_Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Current_Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Collection)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Collection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelf_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shelf_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.item_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item.item_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Available_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

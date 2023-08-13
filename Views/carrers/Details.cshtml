@@ -1,0 +1,51 @@
+﻿@model MacLibraryProject.Models.carrer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>carrer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.carrer_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carrer_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carrer_position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carrer_position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carrer_qualification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carrer_qualification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carrer_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carrer_desc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.carrer_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

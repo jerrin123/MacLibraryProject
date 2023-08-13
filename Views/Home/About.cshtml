@@ -8,18 +8,38 @@
             <div class="col-md-6">
                 <div class="about_img">
                     <figure>
-                        <img src="images/about_img.jpg" alt="#" />
+                        <img src="~/Content/User/images/IMG20220915135451.jpg" alt="#" />
                     </figure>
                 </div>
             </div>
             <div class="col-md-6 order">
                 <div class="titlepage text_align_left">
-                    <h2>About Our Center</h2>
-                    <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipsed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-                    <a class="read_more" href="about.html">Read More</a>
+                    <h2 style="color:white; font-family:serif;">About MLIC</h2>
+                    <p style="font-family:serif; color:white;justify;">MACFAST Library and Information Centre has been on track since the inception of the college at 2001. The library spread across 6616.1088 Square feet with a comprehensive collection in Management, Computer Applications and Bioscience subjects. The library has a separate collection for general books, journals, magazines, bound volumes, CD-ROMS and projects. The library also well equipped with electronic resources and database like EBSCO, ProQuest and e-books collections, etc. Library also has a digital repository system D-Space and digital library, separate place for research scholars and ample reading space provide a good ambience for study and learning.</p>
+                    @*<a class="read_more" href="about.html">Read More</a>*@
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- end about -->
+@*<button id="openPdfButton" class="btn btn-outline-danger">Open PDF</button>*@
+
+@*<script>
+        // Function to open the PDF when the button is clicked
+        function openPDF() {
+            // Replace "path/to/your/pdf/file.pdf" with the actual path to your PDF file
+            string relativePath = " ~/Content/Job Cv.pdf</a > ";
+//string absolutePath = Server.MapPath(relativePath);
+            string absolutePath = Server.MapPath(relativePath);
+
+
+            
+            //var pdfUrl = 
+
+                window.open(relativePath, "_blank");
+        }
+
+        // Attach the click event to the button
+        document.getElementById("openPdfButton").addEventListener("click", openPDF);
+</script>
+<a href="https://localhost:44368/ProPic/SCHEMESYLLABUS-OF-MCA-2020.pdf" class="btn btn-outline-dark">Open </a>*@

@@ -41,12 +41,12 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="@Url.Action("Index","Items")">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                Items List
                             </a>
                             <div class="sb-sidenav-menu-heading">User</div>
-                            <a class="nav-link collapsed" href="@Url.Action("UserList","Admin")" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="@Url.Action("UserList","Admins")" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Layouts
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -59,7 +59,7 @@
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
+                                Items
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
@@ -89,13 +89,17 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="@Url.Action("UserList","Admin")">
+                            <a class="nav-link" href="@Url.Action("UserList","Admins")">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                               User List
+                                User List
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="@Url.Action("Create","Availables")">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Physical Book Details
+                            </a>
+                            <a class="nav-link" href="@Url.Action("Index","contacts")">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Contact Details
                             </a>
                         </div>
                     </div>
@@ -182,6 +186,8 @@
                     </div>
                 </main>
                 <div>*@
+            <br />
+            <br />
     @RenderBody()
 </div>
                 <footer class="py-4 bg-light mt-auto">

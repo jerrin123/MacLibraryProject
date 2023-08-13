@@ -5,14 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+@*<h2>Create</h2>*@
 
 
 @using (Html.BeginForm("SignUp","Users")) 
 {
     @Html.AntiForgeryToken()
-    
+    <br />
+    <br />
+    <center>
 <div class="container">
+    <img src="~/Content/User/images/header.jpg" />
+    <br />
     <h1>Sign Up</h1>
     <form action="/signup" method="post">
         <div class="mb-3">
@@ -42,6 +46,7 @@
         <button type="submit" class="btn btn-danger" value="Signup">Sign Up</button>
     </form>
 </div>
+        </center>
 }
 
 <div>

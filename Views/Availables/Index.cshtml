@@ -1,0 +1,117 @@
+﻿@model IEnumerable<MacLibraryProject.Models.Available>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Styled Item Table</title>
+    <style>
+        /* Add styles for the table */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <div>
+        <img src="~/Content/User/images/header.jpg" />
+    </div>
+    <div>
+
+        <center>
+
+            <h2>WELCOME MACFAST CATALOGUE</h2>
+        </center>
+        <br />
+        <p>
+            @*@Html.ActionLink("Create New", "Create")*@
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Item_Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Current_Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Collection)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Shelf_Number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Barcode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Item.item_name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item_Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Current_Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Collection)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Shelf_Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Barcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item.item_name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Available_Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Available_Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Available_Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    </body>
+</html>

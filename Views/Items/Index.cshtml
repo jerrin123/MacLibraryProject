@@ -4,61 +4,150 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
 }
-
+<br /><br /><br /><br />
+<br />
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.item_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.item_disc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.item_pic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.item_author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.item_branch)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.Cat_Name)
-        </th>
-        <th></th>
-    </tr>
+<head>
+    <style>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family:serif;
+            color:black;
+            text-align:center;
+            font-size:large
+           
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.item_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.item_disc)
-        </td>
-        <td>
-            <img src="@Url.Content(item.item_pic)" width="50px" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.item_author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.item_branch)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Cat_Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.item_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.item_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.item_id })
-        </td>
-    </tr>
-}
+            .table th, .table td {
+                text-align: center;
+                padding: 1px;
+                border: 5px solid black;
+            }
 
-</table>
+            .table th {
+                background-color: maroon;
+            }
+    </style>
+</head>
+<br />
+<br />
+<br />
+<br />
+
+<center>
+    <table class="table">
+        <tr>
+
+            <th>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+               
+
+                @Html.DisplayNameFor(model => model.item_name)
+            </th>
+            <th>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+               
+                @Html.DisplayNameFor(model => model.item_disc)
+            </th>
+            <th>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                
+                @Html.DisplayNameFor(model => model.item_pic)
+            </th>
+            <th>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+               
+                @Html.DisplayNameFor(model => model.item_author)
+            </th>
+            <th>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+               
+                @Html.DisplayNameFor(model => model.item_branch)
+            </th>
+            <th>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+               
+                @Html.DisplayNameFor(model => model.Category.Cat_Name)
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+               
+            </th>
+            <th></th>
+        </tr>
+        <div>
+
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.item_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.item_disc)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.item_pic)" width="50px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.item_author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.item_branch)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Cat_Name)
+                </td>
+                <td>
+                   @Html.ActionLink("Edit", "Edit", new { id = item.item_id })
+                    @Html.ActionLink("Details", "Details", new { id = item.item_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.item_id })
+                    @Html.ActionLink("| Create ", "Create")
+
+                </td>
+                @*<a href="@Url.Action("Create New","Create")" class="btn-danger">Create</a>*@
+            </tr>
+
+        }
+
+        </table>
+    </center>
