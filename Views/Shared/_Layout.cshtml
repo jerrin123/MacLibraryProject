@@ -53,59 +53,66 @@
 
 
                                 @*<li><a href="@Url.Action("About","Home")" style="font-family:serif;font-size:large;">About</a></li>*@
-                                <li class="nav-item dropdown">
-                                    <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
-                                        About
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                        <a class="dropdown-item" href="@Url.Action("About","Home")">KNOW MLIC</a>
-                                        <a class="dropdown-item" href="@Url.Action("Guidlines","Home")">LIBRARY GUIDLINES</a>
-                                        <a class="dropdown-item" href="@Url.Action("Commitee","Home")">LIBRARY COMMITEE</a>
-                                        <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY COLLECTION</a>
-                                        <a class="dropdown-item" href="@Url.Action("Service","Home")">LIBRARY SERVICE</a>
-                                        <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY STAFF</a>
+                                @if (Session["ID"] != null)
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
+                                            About
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+
+                                            <a class="dropdown-item" href="@Url.Action("About", "Home")">KNOW MLIC</a>
+                                            <a class="dropdown-item" href="@Url.Action("Guidlines", "Home")">LIBRARY GUIDLINES</a>
+                                            <a class="dropdown-item" href="@Url.Action("Commitee", "Home")">LIBRARY COMMITEE</a>
+                                            <a class="dropdown-item" href="@Url.Action("Contact", "Home")">LIBRARY COLLECTION</a>
+                                            <a class="dropdown-item" href="@Url.Action("Service", "Home")">LIBRARY SERVICE</a>
+                                            <a class="dropdown-item" href="@Url.Action("Contact", "Home")">LIBRARY STAFF</a>
 
 
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
-                                        EResources
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                        <a class="dropdown-item" href="https://www.proquest.com/business/index?accountid=143324">ProQuest</a>
-                                        <a class="dropdown-item" href="https://search.ebscohost.com/">EBSCO</a>
-                                        @*<a class="dropdown-item" href="@Url.Action("Commitee","Home")"></a>
-                <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY COLLECTION</a>
-                <a class="dropdown-item" href="@Url.Action("Service","Home")">LIBRARY SERVICE</a>
-                <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY STAFF</a>*@
+                                        </div>
+                                    </li>
+                                }
+                                    <li class="nav-item dropdown">
+                                        <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
+                                            EResources
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                            <a class="dropdown-item" href="https://www.proquest.com/business/index?accountid=143324">ProQuest</a>
+                                            <a class="dropdown-item" href="https://search.ebscohost.com/">EBSCO</a>
+                                            @*<a class="dropdown-item" href="@Url.Action("Commitee","Home")"></a>
+                    <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY COLLECTION</a>
+                    <a class="dropdown-item" href="@Url.Action("Service","Home")">LIBRARY SERVICE</a>
+                    <a class="dropdown-item" href="@Url.Action("Contact","Home")">LIBRARY STAFF</a>*@
 
 
-                                    </div>
-                                </li>
-                                <li><a href="@Url.Action("Login","users")" style="font-family:serif;font-size:small;">Catlogue</a></li>
-                                <li class="nav-item dropdown">
-                                    <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
-                                        QuickLinks
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                        <a class="dropdown-item" href="https://opac.app/en/">WEB OPAC APPLICATION</a>
-                                        <a class="dropdown-item" href="https://macfast.org/macfast-journal/">JOURNAL OF SCIENCE AND TECHNOLOGY MANAGEMENT</a>
+                                        </div>
+                                    </li>
+                                    <li><a href="@Url.Action("Login","users")" style="font-family:serif;font-size:small;">Catlogue</a></li>
+                                    <li class="nav-item dropdown">
+                                        <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
+                                            QuickLinks
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                            <a class="dropdown-item" href="https://opac.app/en/">WEB OPAC APPLICATION</a>
+                                            <a class="dropdown-item" href="https://macfast.org/macfast-journal/">JOURNAL OF SCIENCE AND TECHNOLOGY MANAGEMENT</a>
 
-                                        <a class="dropdown-item" href="~/Content/bookpurchasepolicy.pdf">BOOK PURCHASE PROCEDURE</a>
+                                            <a class="dropdown-item" href="~/Content/bookpurchasepolicy.pdf">BOOK PURCHASE PROCEDURE</a>
 
 
 
-                                    </div>
-                                </li>
-                                <li><a href="@Url.Action("LogIn","Users")" style="font-family:serif;font-size:small;">Login</a></li>
+                                        </div>
+                                    </li>
+                                    @if (Session["ID"] == null)
+                                    {
+                                        <li><a href="@Url.Action("LogIn", "Users")" style="font-family:serif;font-size:small;">Login</a></li>
+                                    }
 
-                                <li >
                                     @if (Session["ID"] != null)
                                     {
-                                        <a href="@Url.Action("Index", "Home")" style="font-family:serif;font-size:small;">Logout</a>
+                                        <li>
+                                            <a href="@Url.Action("Logout", "Users")" style="font-family:serif;font-size:small;">Logout</a>
+                                        </li>
                                     }
-                                </li>
 
 
 
@@ -118,11 +125,12 @@
 
 
 
-                                @*<li><a href="">None </a></li>
-        <li><a href="contact.html">Contact us</a></li>*@
-                                <li class="d_none"><a href="@Url.Action("LogIn","Admins")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 
-                            </ul>
+                                    @*<li><a href="">None </a></li>
+            <li><a href="contact.html">Contact us</a></li>*@
+                                    <li class="d_none"><a href="@Url.Action("LogIn","Admins")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+
+                                </ul>
 
                             <button class="nav-toggler">
                                 <span></span>

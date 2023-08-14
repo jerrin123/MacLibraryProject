@@ -57,8 +57,8 @@
                                 <p class="mb-0">@o.Audio_Description</p>
                                 <p class="mb-0">@o.Audio_Subject</p>
 
-                                <audio controls oncontextmenu="return false;">
-            <source src="@Url.Content(o.Audio_File)" type="audio/mp3">
+                                <audio controls controlsList="nodownload" oncontextmenu="return false; " >
+            <source src="@Url.Content(o.Audio_File)" type="audio/mp3  ">
             Your browser does not support the audio element.
         </audio>
                                

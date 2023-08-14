@@ -19,46 +19,7 @@ namespace MacLibraryProject.Controllers
         {
             return View(db.Users.ToList());
         }
-        public ActionResult LogIn()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult LogIn(User a)
-        {
 
-            //var cust = db.Users.Where(x => x.User_Email == a.User_Email && x.User_Password == a.User_Password).Count();
-            //var id = db.Users.Where(x => x.User_Email == a.User_Email && x.User_Email == a.User_Email).Select(v => v.User_Id).FirstOrDefault();
-            //var idd = db.Users.FirstOrDefault(x => x.User_Email == x.User_Email && x.User_Password == a.User_Password);
-            //Session["CID"] = id;
-            //Session["CIDD"] = idd;
-            //if (cust > 0)
-            //{
-            //    Session["ID"] = cust;
-            //    //Response.Write("<script>alert('Invalid Username/Password'); </script>");
-            //    return RedirectToAction("userd", "Home");
-            //}
-            //else
-            //{
-
-            //    return View();
-            //}
-            int res = db.Users.Where(x => x.User_Email == a.User_Email && x.User_Password == a.User_Password).Count();
-            if (res == 1)
-            {
-                return RedirectToAction("userd", "Home");
-            }
-            else
-            {
-                Response.Write("<script>alert('Invalid Username/Password'); </script>");
-                return View();
-            }
-        }
-        public ActionResult Logout()
-        {
-            Session["ID"] = null;
-            return RedirectToAction("Index", "Home");
-        }
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
@@ -91,12 +52,41 @@ namespace MacLibraryProject.Controllers
             {
                 db.Users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("LogIn");
+                return RedirectToAction("Index");
             }
 
             return View(user);
         }
+        public ActionResult LogIn()
+        {
+            return View();
+        }
+        [HttpPost]
 
+        public ActionResult LogIn(User c)
+        {
+            var cust = db.Users.Where(x => x.User_Email == c.User_Email && x.User_Password == c.User_Password).Count();
+            var id = db.Users.Where(x => x.User_Email == c.User_Email && x.User_Password == c.User_Password).Select(v => v.User_Id).FirstOrDefault();
+            var idd = db.Users.FirstOrDefault(x => x.User_Email == c.User_Email && x.User_Password == c.User_Password);
+            Session["CID"] = id;
+            Session["CIDD"] = idd;
+            if (cust > 0)
+            {
+                Session["ID"] = cust;
+                Response.Write("<script>alert('Invalid Username/Password'); </script>");
+                return RedirectToAction("userd", "Home");
+            }
+            else
+            {
+
+                return View();
+            }
+        }
+        public ActionResult Logout()
+        {
+            Session["ID"] = null;
+            return RedirectToAction("Index", "Home");
+        }
         // GET: Users/Edit/5
         public ActionResult Edit(int? id)
         {

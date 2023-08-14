@@ -73,6 +73,21 @@
           <Property Name="person_email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="messages" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
+        <EntityType Name="EbookTable">
+          <Key>
+            <PropertyRef Name="Ebook_ID" />
+          </Key>
+          <Property Name="Ebook_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ebook_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ebook_Author" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ebook_Desctiption" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ebook_Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ebook_Publication" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ebook_year" Type="date" Nullable="false" />
+          <Property Name="Ebook_Language" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ebook_Pdf" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ebook_Pages" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Item">
           <Key>
             <PropertyRef Name="item_id" />
@@ -117,6 +132,16 @@
           <Property Name="staff_email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="staff_password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Testimonial">
+          <Key>
+            <PropertyRef Name="Test_Id" />
+          </Key>
+          <Property Name="Test_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Test_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Test_Batch" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Test_Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Test_Pic" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="User_Id" />
@@ -159,10 +184,12 @@
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Community" EntityType="Self.Community" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EbookTable" EntityType="Self.EbookTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="staff" EntityType="Self.staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Testimonial" EntityType="Self.Testimonial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Videobook" EntityType="Self.Videobook" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Available_Item" Association="Self.FK_Available_Item">
@@ -216,6 +243,8 @@
           <EntitySet Name="Payments" EntityType="LibraryDbModel.Payment" />
           <EntitySet Name="Videobooks" EntityType="LibraryDbModel.Videobook" />
           <EntitySet Name="AudioTables" EntityType="LibraryDbModel.AudioTable" />
+          <EntitySet Name="EbookTables" EntityType="LibraryDbModel.EbookTable" />
+          <EntitySet Name="Testimonials" EntityType="LibraryDbModel.Testimonial" />
           </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -358,6 +387,31 @@
           <Property Name="Audio_Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Audio_Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Audio_File" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EbookTable">
+          <Key>
+            <PropertyRef Name="Ebook_ID" />
+          </Key>
+          <Property Name="Ebook_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ebook_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ebook_Author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ebook_Desctiption" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ebook_Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ebook_Publication" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ebook_year" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Ebook_Language" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ebook_Pdf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ebook_Pages" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Testimonial">
+          <Key>
+            <PropertyRef Name="Test_Id" />
+          </Key>
+          <Property Name="Test_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Test_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Test_Batch" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Test_Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Test_Pic" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -509,6 +563,33 @@
                 <ScalarProperty Name="Audio_Description" ColumnName="Audio_Description" />
                 <ScalarProperty Name="Audio_Name" ColumnName="Audio_Name" />
                 <ScalarProperty Name="Audio_id" ColumnName="Audio_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EbookTables">
+            <EntityTypeMapping TypeName="LibraryDbModel.EbookTable">
+              <MappingFragment StoreEntitySet="EbookTable">
+                <ScalarProperty Name="Ebook_Pages" ColumnName="Ebook_Pages" />
+                <ScalarProperty Name="Ebook_Pdf" ColumnName="Ebook_Pdf" />
+                <ScalarProperty Name="Ebook_Language" ColumnName="Ebook_Language" />
+                <ScalarProperty Name="Ebook_year" ColumnName="Ebook_year" />
+                <ScalarProperty Name="Ebook_Publication" ColumnName="Ebook_Publication" />
+                <ScalarProperty Name="Ebook_Subject" ColumnName="Ebook_Subject" />
+                <ScalarProperty Name="Ebook_Desctiption" ColumnName="Ebook_Desctiption" />
+                <ScalarProperty Name="Ebook_Author" ColumnName="Ebook_Author" />
+                <ScalarProperty Name="Ebook_Name" ColumnName="Ebook_Name" />
+                <ScalarProperty Name="Ebook_ID" ColumnName="Ebook_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Testimonials">
+            <EntityTypeMapping TypeName="LibraryDbModel.Testimonial">
+              <MappingFragment StoreEntitySet="Testimonial">
+                <ScalarProperty Name="Test_Pic" ColumnName="Test_Pic" />
+                <ScalarProperty Name="Test_Description" ColumnName="Test_Description" />
+                <ScalarProperty Name="Test_Batch" ColumnName="Test_Batch" />
+                <ScalarProperty Name="Test_Name" ColumnName="Test_Name" />
+                <ScalarProperty Name="Test_Id" ColumnName="Test_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

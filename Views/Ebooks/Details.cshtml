@@ -1,0 +1,97 @@
+﻿@model MacLibraryProject.Models.EbookTable
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EbookTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ebook_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ebook_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ebook_Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ebook_Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ebook_Desctiption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ebook_Desctiption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ebook_Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ebook_Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ebook_Publication)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ebook_Publication)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ebook_year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ebook_year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ebook_Language)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ebook_Language)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ebook_Pdf)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Ebook_Pdf)*@
+
+            <object data="@Url.Content(Model.Ebook_Pdf)" type="application/pdf" width="100%" height="500">
+                <p>Your browser does not support PDFs. <a href="@Url.Content(Model.Ebook_Pdf)">Download the PDF</a> instead.</p>
+            </object>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ebook_Pages)
+
+           
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ebook_Pages)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Ebook_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

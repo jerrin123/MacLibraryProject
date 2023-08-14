@@ -11,16 +11,13 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-
-    public partial class Videobook
+    
+    public partial class Testimonial
     {
-        public int Video_ID { get; set; }
-        public string Video_Name { get; set; }
-        public string Video_File { get; set; }
-        
-        public HttpPostedFileBase Vdo_file { get; set; }
-        public string Video_Description { get; set; }
-        public string Video_Subject { get; set; }
+        public int Test_Id { get; set; }
+        public string Test_Name { get; set; }
+        public string Test_Batch { get; set; }
+        public string Test_Description { get; set; }
+        public string Test_Pic { get; set; }
     }
 }

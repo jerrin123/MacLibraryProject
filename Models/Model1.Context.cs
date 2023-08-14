@@ -38,5 +38,7 @@ namespace MacLibraryProject.Models
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Videobook> Videobooks { get; set; }
         public virtual DbSet<AudioTable> AudioTables { get; set; }
+        public virtual DbSet<EbookTable> EbookTables { get; set; }
+        public virtual DbSet<Testimonial> Testimonials { get; set; }
     }
 }

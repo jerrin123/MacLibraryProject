@@ -12,6 +12,42 @@
     <link href="~/fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="~/fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
     <link href="~/fonts/fontawesome-webfont.eot" rel="stylesheet">
+
+
+    <style>
+        .card {
+            width: 18rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            font-family: serif;
+            background-color: maroon; /* Add this line to set the background color */
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: red;
+            text-align: center;
+        }
+
+        .card-text {
+            color: red;
+            text-align: justify;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -41,54 +77,29 @@
                 {
 
 
-
+                   
                     <div class="card" style="width: 18rem;">
-                        <video class="card-img-top" width="320" height="240" controls>
-                            <source src="@Url.Content(o.Video_File)" type="video/mp4">
-
-
-                        </video>
-                        <div class="card-body">
-                            <h5 class="card-title">  @o.Video_Name</h5>
-                            <p class="card-text">  @o.Video_Description</p>
-                            <p class="card-text">  @o.Video_Subject</p>
-
-                        </div>
-                    </div>
-
-
-
-                    @*<div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="box">
-              <div class="option_container">
-              <div class="options">
-              <a href="" class="option1">
-                  @o.Video_Name
-              </a>
-
-             </div>
-            </div>
-            <div class="img-box rounded" style="background-color:aliceblue">
-            <video width="320" height="240" controls>
-              <source src="@Url.Content(o.Video_File)" type="video/mp4">
+                    <video class="card-img-top" width="320" height="320" controls  controlsList="nodownload">
+                        <source src="@Url.Content(o.Video_File)" type="video/mp4">
 
 
                     </video>
-              </div>
-               <div class="detail-box">
-                    <h5>
-              @o.Video_Description
-              </h5>
-             <h6>
-              @o.Video_Subject
-                </h6>
-                     </div>
-                        </div>
-                   </div>*@
-                }
+                    <div class="card-body">
+                        <h4 class="card-title" style="font-family:serif; color: white; font-weight:bold; text-align:justify;">  @o.Video_Name</h4>
+                        <p class="card-text"  style="font-family: serif; color: white; text-align: justify;">  @o.Video_Description</p>
+                        <p class="card-text"  style="font-family: serif; color: white; text-align: justify;">  @o.Video_Subject</p>
+
+                    </div>
+                </div>
 
 
-            </div>
+
+
+            }
+
+
+                
+                
             <div class="btn-box">
                 <a href="@Url.Action("Index","Home")">
                     Back to Home

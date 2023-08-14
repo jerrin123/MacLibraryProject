@@ -5,94 +5,72 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("LogIn", "Users"))
+<h2>LogIn</h2>
+
+@using (Html.BeginForm("LogIn","Users")) 
 {
     @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>User</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.User_Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.User_Firstname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.User_Firstname, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.User_Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.User_Lastname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.User_Lastname, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Login Page</title>
-        <!-- Add any necessary CSS styles here -->
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
+        <div class="form-group">
+            @Html.LabelFor(model => model.User_Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.User_Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.User_Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-            form {
-                max-width: 400px;
-                margin: 0 auto;
-                padding: 20px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
+        <div class="form-group">
+            @Html.LabelFor(model => model.User_Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.User_Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-            h4 {
-                text-align: center;
-            }
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.User_Contact, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.User_Contact, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.User_Contact, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
-            .form-label {
-                font-weight: bold;
-            }
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.User_Department, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.User_Department, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.User_Department, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
-            .form-control {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 10px;
-                border: none;
-                border-radius: 5px;
-                color: #fff;
-                font-weight: bold;
-                cursor: pointer;
-            }
-
-            .btn-danger {
-                background-color: #e74c3c;
-            }
-
-            .signup-link {
-                text-align: center;
-                margin-top: 10px;
-            }
-        </style>
-    </head>
-<body>
-    <div>
-        <img src="~/Content/User/images/header.jpg">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
     </div>
-    <form>
-        <center>
-            <h4>Sign In</h4>
-        </center>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="User_Email">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="User_Password">
-        </div>
+}
 
-        <a href="@Url.Action("userd","Home")"button type="submit" class="btn btn-danger" value="Log In">Log In</a>
-        
-        <div>
-            @Html.ActionLink("if you are not a user Signup ", "Signup")
-        </div>
-    </form>
-    </body>
-</html>
-    }
-
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
