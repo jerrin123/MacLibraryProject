@@ -1,7 +1,6 @@
-﻿@model MacLibraryProject.Models.AudioModel
-
+﻿@model MacLibraryProject.Models.EModel
 @{
-    ViewBag.Title = "AudioB";
+    ViewBag.Title = "EB";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -40,42 +39,43 @@
             </div>
             <div class="row " style="margin-right:20px;">
                 <div class="col">
-                    @foreach (var o in Model.Aid)
+                    @foreach (var o in Model.Eid)
                     {
 
-                        <div class="card">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img class="card-img-top" src="https://mdbootstrap.com/wp-content/uploads/2019/02/flam.jpg"
-                                     alt="Card image cap">
-                                <a href="#!">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                            </div>
+                       
                             <div class="card-body text-center">
 
-                                <h5 class="h5 font-weight-bold"><a href="#" target="_blank">@o.Audio_Name</a></h5>
-                                <p class="mb-0">@o.Audio_Description</p>
-                                <p class="mb-0">@o.Audio_Subject</p>
 
-                                <audio controls controlsList="nodownload" oncontextmenu="return false; " >
-            <source src="@Url.Content(o.Audio_File)" type="audio/mp3  ">
-            Your browser does not support the audio element.
-        </audio>
-                               
+
+                                @*<object controls controlsList="nodownload" data="@Url.Content(o.Ebook_Pdf)" type="application/pdf" width="100%" height="500">*@
+                                    @*<p>Your browser does not support PDFs. <a href="@Url.Content(o.Audio_File)">Download the PDF</a> instead.</p>*@
+                                @*</object>*@
+                                <a href="@Url.Content(o.Ebook_Pdf)"  class="btn btn-danger" > CLICK HERE </a>
+
+                                <script>
+                                    document.addEventListener("contextmenu", function (e) {
+                                        e.preventDefault();
+                                    });
+                                </script>
+
+                                <h5 class="h5 font-weight-bold"><a href="#" target="_blank">@o.Ebook_Name</a></h5>
+                                <p class="mb-0">@o.Ebook_Decription</p>
+                                <p class="mb-0">@o.Ebook_Author</p>
+
+
+
 
 
                             </div>
-                        </div>
                     }
-                    </div>
-                    
+                </div>
+
 
             </div>
-            </div>
+        </div>
 
-              
+
     </section>
 </body>
 </html>
-
 

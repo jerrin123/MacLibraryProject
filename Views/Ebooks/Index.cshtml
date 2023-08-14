@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MacLibraryProject.Models.EbookTable>
+﻿@model IEnumerable<MacLibraryProject.Models.Ebook>
 
 @{
     ViewBag.Title = "Index";
@@ -16,28 +16,13 @@
             @Html.DisplayNameFor(model => model.Ebook_Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ebook_Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ebook_Desctiption)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ebook_Subject)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ebook_Publication)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ebook_year)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ebook_Language)
+            @Html.DisplayNameFor(model => model.Ebook_Decription)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Ebook_Pdf)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ebook_Pages)
+            @Html.DisplayNameFor(model => model.Ebook_Author)
         </th>
         <th></th>
     </tr>
@@ -48,37 +33,21 @@
             @Html.DisplayFor(modelItem => item.Ebook_Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Ebook_Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ebook_Desctiption)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ebook_Subject)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ebook_Publication)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ebook_year)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ebook_Language)
+            @Html.DisplayFor(modelItem => item.Ebook_Decription)
         </td>
         <td>
             @*@Html.DisplayFor(modelItem => item.Ebook_Pdf)*@
-
             <object data="@Url.Content(item.Ebook_Pdf)" type="application/pdf" width="100%" height="500">
-                <p>Your browser does not support PDFs. <a href="@Url.Content(item.Ebook_Pdf)">Download the PDF</a> instead.</p>
+                @*<p>Your browser does not support PDFs. <a href="@Url.Content(o.Audio_File)">Download the PDF</a> instead.</p>*@
             </object>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Ebook_Pages)
+            @Html.DisplayFor(modelItem => item.Ebook_Author)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Ebook_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Ebook_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Ebook_ID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Ebook_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Ebook_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Ebook_Id })
         </td>
     </tr>
 }

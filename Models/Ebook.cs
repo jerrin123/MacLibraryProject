@@ -11,18 +11,16 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class EbookTable
+    using System.Web;
+
+    public partial class Ebook
     {
-        public int Ebook_ID { get; set; }
+        public int Ebook_Id { get; set; }
         public string Ebook_Name { get; set; }
-        public string Ebook_Author { get; set; }
-        public string Ebook_Desctiption { get; set; }
-        public string Ebook_Subject { get; set; }
-        public string Ebook_Publication { get; set; }
-        public System.DateTime Ebook_year { get; set; }
-        public string Ebook_Language { get; set; }
+        public string Ebook_Decription { get; set; }
         public string Ebook_Pdf { get; set; }
-        public string Ebook_Pages { get; set; }
+
+        public HttpPostedFileBase Eb_File { get; set; }
+        public string Ebook_Author { get; set; }
     }
 }

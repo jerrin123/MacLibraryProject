@@ -51,6 +51,14 @@ namespace MacLibraryProject.Controllers
 
             return View();
         }
+
+
+        public ActionResult Reviewpage()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
         public ActionResult Commitee()
         {
             ViewBag.Message = "Your application description page.";
@@ -144,7 +152,28 @@ namespace MacLibraryProject.Controllers
             return View(o);
 
         }
+
+        public ActionResult EB(int? id)
+        {
+            EModel o = new EModel();
+
+
+
+
+            if (id == null)
+            {
+                o.Eid = db.Ebooks.ToList();
+            }
+            else
+            {
+                // o.Out = db.VideoB.Where(z => z.branch_fid == id).ToList();
+            }
+
+            return View(o);
+
+        }
       
+
 
     }
 }

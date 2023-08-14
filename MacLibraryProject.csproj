@@ -142,6 +142,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CommunitiesController.cs" />
     <Compile Include="Controllers\contactsController.cs" />
+    <Compile Include="Controllers\EbooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\LeavesController.cs" />
@@ -175,9 +176,10 @@
     <Compile Include="Models\contact.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EbookTable.cs">
+    <Compile Include="Models\Ebook.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EModel.cs" />
     <Compile Include="Models\Item.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -522,17 +524,18 @@
     <Content Include="Views\AudioTables\Edit.cshtml" />
     <Content Include="Views\AudioTables\Index.cshtml" />
     <Content Include="Views\Home\AudioB.cshtml" />
-    <Content Include="Views\Ebooks\Create.cshtml" />
-    <Content Include="Views\Ebooks\Delete.cshtml" />
-    <Content Include="Views\Ebooks\Details.cshtml" />
-    <Content Include="Views\Ebooks\Edit.cshtml" />
-    <Content Include="Views\Ebooks\Index.cshtml" />
     <Content Include="Views\Users\SignUp.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\LogIn.cshtml" />
+    <Content Include="Views\Ebooks\Create.cshtml" />
+    <Content Include="Views\Ebooks\Delete.cshtml" />
+    <Content Include="Views\Ebooks\Details.cshtml" />
+    <Content Include="Views\Ebooks\Edit.cshtml" />
+    <Content Include="Views\Ebooks\Index.cshtml" />
+    <Content Include="Views\Home\EB.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
