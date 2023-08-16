@@ -27,8 +27,7 @@ namespace MacLibraryProject
 
         public DbSet <AudioTable> AudioTables { get; set; }
 
-        public DbSet<Ebook> Ebooks { get; set; }
-
+        public DbSet <Dbook> Dbooks { get; set; }
 
     }
 }

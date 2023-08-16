@@ -42,32 +42,33 @@
                 <div class="col">
                     @foreach (var o in Model.Aid)
                     {
+                       
 
-                        <div class="card">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img class="card-img-top" src="https://mdbootstrap.com/wp-content/uploads/2019/02/flam.jpg"
-                                     alt="Card image cap">
-                                <a href="#!">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
+                        <div class="card text-bg-dark " style="width: 400px; height: 500px;">
+                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                    <img class="card-img-top" src="https://c1.wallpaperflare.com/preview/993/185/255/headphones-small-book-relax.jpg"
+                                         alt="Card image cap">
+                                    <a href="#!">
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                    </a>
+                                </div>
+                                <div class="card-body text-center">
+
+                                    <h5 class="h5 font-weight-bold"><a href="#" target="_blank" style="font-family:serif; font-weight:bold;">@o.Audio_Name</a></h5>
+                                    <p class="mb-0" style="font-family:serif; font-weight:bold; color:white;">@o.Audio_Description</p>
+                                    <p class="mb-0" style="font-family:serif; font-weight:bold; color:white;">@o.Audio_Subject</p>
+
+                                    <audio controls controlsList="nodownload" oncontextmenu="return false; " >
+                <source src="@Url.Content(o.Audio_File)" type="audio/mp3  ">
+                Your browser does not support the audio element.
+            </audio>
+
+
+
+                                </div>
                             </div>
-                            <div class="card-body text-center">
-
-                                <h5 class="h5 font-weight-bold"><a href="#" target="_blank">@o.Audio_Name</a></h5>
-                                <p class="mb-0">@o.Audio_Description</p>
-                                <p class="mb-0">@o.Audio_Subject</p>
-
-                                <audio controls controlsList="nodownload" oncontextmenu="return false; " >
-            <source src="@Url.Content(o.Audio_File)" type="audio/mp3  ">
-            Your browser does not support the audio element.
-        </audio>
-                               
-
-
-                            </div>
-                        </div>
                     }
-                    </div>
+                </div>
                     
 
             </div>

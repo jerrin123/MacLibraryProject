@@ -1,7 +1,8 @@
 ﻿html,
-body,
 .view {
     height: 100%;
+    background-image: url('../images/books-education-school-literature.jpg');
+    background-size: cover;
 }
 
 #mobile-box {

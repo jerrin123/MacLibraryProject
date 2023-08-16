@@ -73,11 +73,11 @@
           <Property Name="person_email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="messages" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <EntityType Name="Ebook">
+        <EntityType Name="Dbook">
           <Key>
-            <PropertyRef Name="Ebook_Id" />
+            <PropertyRef Name="Ebooks_Id" />
           </Key>
-          <Property Name="Ebook_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ebooks_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ebook_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ebook_Decription" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Ebook_Pdf" Type="nvarchar(max)" Nullable="false" />
@@ -179,7 +179,7 @@
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Community" EntityType="Self.Community" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Ebook" EntityType="Self.Ebook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dbook" EntityType="Self.Dbook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
@@ -239,7 +239,7 @@
           <EntitySet Name="Videobooks" EntityType="LibraryDbModel.Videobook" />
           <EntitySet Name="AudioTables" EntityType="LibraryDbModel.AudioTable" />
           <EntitySet Name="Testimonials" EntityType="LibraryDbModel.Testimonial" />
-          <EntitySet Name="Ebooks" EntityType="LibraryDbModel.Ebook" />
+          <EntitySet Name="Dbooks" EntityType="LibraryDbModel.Dbook" />
           </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -393,11 +393,11 @@
           <Property Name="Test_Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Test_Pic" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Ebook">
+        <EntityType Name="Dbook">
           <Key>
-            <PropertyRef Name="Ebook_Id" />
+            <PropertyRef Name="Ebooks_Id" />
           </Key>
-          <Property Name="Ebook_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ebooks_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ebook_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Ebook_Decription" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Ebook_Pdf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -567,14 +567,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Ebooks">
-            <EntityTypeMapping TypeName="LibraryDbModel.Ebook">
-              <MappingFragment StoreEntitySet="Ebook">
+          <EntitySetMapping Name="Dbooks">
+            <EntityTypeMapping TypeName="LibraryDbModel.Dbook">
+              <MappingFragment StoreEntitySet="Dbook">
                 <ScalarProperty Name="Ebook_Author" ColumnName="Ebook_Author" />
                 <ScalarProperty Name="Ebook_Pdf" ColumnName="Ebook_Pdf" />
                 <ScalarProperty Name="Ebook_Decription" ColumnName="Ebook_Decription" />
                 <ScalarProperty Name="Ebook_Name" ColumnName="Ebook_Name" />
-                <ScalarProperty Name="Ebook_Id" ColumnName="Ebook_Id" />
+                <ScalarProperty Name="Ebooks_Id" ColumnName="Ebooks_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

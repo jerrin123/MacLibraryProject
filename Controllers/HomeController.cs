@@ -153,27 +153,8 @@ namespace MacLibraryProject.Controllers
 
         }
 
-        public ActionResult EB(int? id)
-        {
-            EModel o = new EModel();
 
-
-
-
-            if (id == null)
-            {
-                o.Eid = db.Ebooks.ToList();
-            }
-            else
-            {
-                // o.Out = db.VideoB.Where(z => z.branch_fid == id).ToList();
-            }
-
-            return View(o);
-
-        }
       
-
 
     }
 }

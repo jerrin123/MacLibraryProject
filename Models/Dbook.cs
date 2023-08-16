@@ -13,14 +13,14 @@ namespace MacLibraryProject.Models
     using System.Collections.Generic;
     using System.Web;
 
-    public partial class Ebook
+    public partial class Dbook
     {
-        public int Ebook_Id { get; set; }
+        public int Ebooks_Id { get; set; }
         public string Ebook_Name { get; set; }
         public string Ebook_Decription { get; set; }
         public string Ebook_Pdf { get; set; }
 
-        public HttpPostedFileBase Eb_File { get; set; }
+        public HttpPostedFileBase Ebk_file { get; set; }
         public string Ebook_Author { get; set; }
     }
 }
