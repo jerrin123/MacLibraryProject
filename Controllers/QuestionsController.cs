@@ -10,136 +10,118 @@ using MacLibraryProject.Models;
 
 namespace MacLibraryProject.Controllers
 {
-    public class AdminsController : Controller
+    public class QuestionsController : Controller
     {
         private LibraryDbEntities db = new LibraryDbEntities();
 
-        // GET: Admins
-        //public ActionResult Index()
-        //{
-        //    return View(db.Admins.ToList());
-        //}
-
+        // GET: Questions
         public ActionResult Index()
         {
-            var availables = db.Availables.Include(a => a.Item);
-            return View(availables.ToList());
+            return View(db.Questions.ToList());
         }
-        // GET: Admins/Details/5
+
+        // GET: Questions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Question question = db.Questions.Find(id);
+            if (question == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
-        }
-        public ActionResult LogIn()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult LogIn(Admin a)
-        {
-            int res = db.Admins.Where(x => x.Admin_Email == a.Admin_Email && x.Admin_Password == a.Admin_Password).Count();
-            if (res == 1)
-            {
-                return RedirectToAction("Admin", "Home");
-            }
-            else
-            {
-                //Response.Write("<script>alert('Invalid Username/Password'); </script>");
-                return View();
-            }
+            return View(question);
         }
 
-        public ActionResult UserList()
-        {
-            return View(db.Users.ToList());
-        }
-        // GET: Admins/Create
-       
-        // GET: Admins/Create
+        // GET: Questions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admins/Create
+        // POST: Questions/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Admin_Id,Admin_Email,Admin_Password")] Admin admin)
+        public ActionResult Create( Question question)
         {
             if (ModelState.IsValid)
             {
-                db.Admins.Add(admin);
-                db.SaveChanges();
-                return RedirectToAction("LogIn");
-            }
 
-            return View(admin);
+                question.Q_p.SaveAs(Server.MapPath("~/Book/" + question.Q_p.FileName));
+                //product.Prod_Pic = "~/ProPic/" + product.Pro_Pic.FileName;
+                if (question.Q_p.FileName != "")
+                {
+                    question.Q_Pdf = "~/Book/" +question.Q_p.FileName;
+                    db.Questions.Add(question);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    question.Q_Pdf = null;
+                }
+            
+                return RedirectToAction("Index");
+            }
+            return View(question);
         }
 
-        // GET: Admins/Edit/5
+        // GET: Questions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Question question = db.Questions.Find(id);
+            if (question == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(question);
         }
 
-        // POST: Admins/Edit/5
+        // POST: Questions/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Admin_Id,Admin_Email,Admin_Password")] Admin admin)
+        public ActionResult Edit([Bind(Include = "Q_id,Subject,Semester,year,Q_Pdf,Q_title")] Question question)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(admin).State = EntityState.Modified;
+                db.Entry(question).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(admin);
+            return View(question);
         }
 
-        // GET: Admins/Delete/5
+        // GET: Questions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Question question = db.Questions.Find(id);
+            if (question == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(question);
         }
 
-        // POST: Admins/Delete/5
+        // POST: Questions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Admin admin = db.Admins.Find(id);
-            db.Admins.Remove(admin);
+            Question question = db.Questions.Find(id);
+            db.Questions.Remove(question);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -152,7 +134,5 @@ namespace MacLibraryProject.Controllers
             }
             base.Dispose(disposing);
         }
-
-
     }
 }

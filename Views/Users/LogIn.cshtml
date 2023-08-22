@@ -5,72 +5,96 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>LogIn</h2>
+<head>
+    <link href="~/Content/User/css/login.css" rel="stylesheet" />
 
-@using (Html.BeginForm("LogIn","Users")) 
+</head>
+
+@using (Html.BeginForm("LogIn", "Users"))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>User</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.User_Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Firstname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.User_Firstname, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.User_Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Lastname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.User_Lastname, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.User_Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.User_Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <section class="vh-100" style="background-color: #9A616D;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <img src="https://macfast.org/wp-content/uploads/2021/03/DSC07953-min-1-scaled-768x768.jpg"
+                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height:550px; width:450px;" />
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.User_Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.User_Password, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.User_Contact, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Contact, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.User_Contact, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                                      <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                    <span class="h1 fw-bold mb-0">LOGIN</span>
+                  </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.User_Department, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Department, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.User_Department, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                  @*<h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>*@
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.User_Email,  new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.User_Email, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.User_Email, "", new { @class = "text-danger" })
+                                            @*<span class="text-danger">Please enter your email address.</span>*@
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.User_Password,  new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.User_Password, "", new { @class = "text-danger" })
+                                            @*<span class="text-danger">Please enter our email Password.</span>*@
+
+                                            <script>
+                                                function togglePasswordVisibility() {
+                                                    var passwordInput = document.getElementById('passwordInput');
+                                                    if (passwordInput.type === 'password') {
+                                                        passwordInput.type = 'text';
+                                                    }
+                                                    else {
+                                                        passwordInput.type = 'password';
+                                                    }
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Login" class="btn btn-primary" />
+                                            <a class="btn btn-primary" href="@Url.Action("SignUp", "Users")">REGISTER ? </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </section>
+
+
+
+
+                            }
+
+
+
+
+
+
+
+
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

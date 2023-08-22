@@ -59,6 +59,36 @@ namespace MacLibraryProject.Controllers
 
             return View();
         }
+
+        public ActionResult Audiohome()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Videohome()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Ebookhome()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Questionhome()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+
         public ActionResult Commitee()
         {
             ViewBag.Message = "Your application description page.";
@@ -152,9 +182,85 @@ namespace MacLibraryProject.Controllers
             return View(o);
 
         }
+        public ActionResult QB(int? id)
+        {
+            QModel o = new QModel();
 
 
+
+
+            if (id == null)
+            {
+                o.Qid = db.Questions.ToList();
+            }
+            else
+            {
+                // o.Out = db.VideoB.Where(z => z.branch_fid == id).ToList();
+            }
+
+            return View(o);
+
+        }
+
+
+
+        public ActionResult Wishlist()
+        {
+
+
+            return View();
+        }
+        public ActionResult AddtoWish(int id)
+        {
+
+            List<Item> list;
+            if (Session["myWish"] == null)
+            {
+                list = new List<Item>();
+            }
+            else
+            {
+                list = (List<Item>)Session["myWish"];
+            }
+            list.Add(db.Items.Where(p => p.item_id == id).FirstOrDefault());
+
+
+            Session["myWish"] = list;
+            return RedirectToAction("Wishlist");
+        }
+        public ActionResult RemoveFromWish(int RowNo)
+        {
+            List<Item> list = (List<Item>)Session["myWish"];
+            list.RemoveAt(RowNo);
+            Session["myWish"] = list;
+            return RedirectToAction("Wishlist");
+        }
+
+
+        public ActionResult DbookB(int? id)
+        {
+            Dmodel o = new Dmodel();
+
+
+
+
+            if (id == null)
+            {
+                o.Did = db.Dbooks.ToList();
+            }
+            else
+            {
+                // o.Out = db.VideoB.Where(z => z.branch_fid == id).ToList();
+            }
+
+            return View(o);
+
+        }
       
+       
+
+
+
 
     }
 }

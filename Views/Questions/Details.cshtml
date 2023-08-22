@@ -1,0 +1,61 @@
+﻿@model MacLibraryProject.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semester)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q_Pdf)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Q_Pdf)*@
+            <object data="@Url.Content(Model.Q_Pdf)" type="application/pdf" width="100%" height="500">
+            </object>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q_title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Q_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -53,7 +53,10 @@
 
 
                                 @*<li><a href="@Url.Action("About","Home")" style="font-family:serif;font-size:large;">About</a></li>*@
-                                @if (Session["ID"] != null)
+                                @*@if (Session["ID"] != null)
+        {*@
+
+                                @if (Session["ID"] == null)
                                 {
                                     <li class="nav-item dropdown">
                                         <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
@@ -72,6 +75,11 @@
                                         </div>
                                     </li>
                                 }
+                                @*}*@
+
+                                @if (Session["ID"] == null)
+                                {
+
                                     <li class="nav-item dropdown">
                                         <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
                                             EResources
@@ -87,7 +95,10 @@
 
                                         </div>
                                     </li>
-                                    <li><a href="@Url.Action("Login","users")" style="font-family:serif;font-size:small;">Catlogue</a></li>
+                                }
+                                @*<li><a href="" style="font-family:serif;font-size:small;"></a></li>*@
+                                @if (Session["ID"] == null)
+                                {
                                     <li class="nav-item dropdown">
                                         <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
                                             QuickLinks
@@ -102,35 +113,88 @@
 
                                         </div>
                                     </li>
-                                    @if (Session["ID"] == null)
-                                    {
-                                        <li><a href="@Url.Action("LogIn", "Users")" style="font-family:serif;font-size:small;">Login</a></li>
-                                    }
+                                }
 
-                                    @if (Session["ID"] != null)
-                                    {
-                                        <li>
-                                            <a href="@Url.Action("Logout", "Users")" style="font-family:serif;font-size:small;">Logout</a>
-                                        </li>
-                                    }
+                                @if (Session["ID"] != null)
+                                {
 
+                                    @*<li><a href="@Url.Action("Login", "users")" style="font-family:serif;font-size:small;">Catlogue</a></li>*@
+                                    <li class="nav-item dropdown">
+                                        <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
+                                            ECOLLECTION
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                            <a class="dropdown-item" href="@Url.Action("Audiohome", "Home")">Audio Books</a>
+                                            <a class="dropdown-item" href="@Url.Action("Videohome", "Home")">Audio Books</a>
+                                            <a class="dropdown-item" href="@Url.Action("Ebookhome", "Home")">Audio Books</a>
+                                            <a class="dropdown-item" href="@Url.Action("Questionhome", "Home")">Audio Books</a>
 
+                                            <a class="dropdown-item" href="https://macfast.org/macfast-journal/">JOURNAL OF SCIENCE AND TECHNOLOGY MANAGEMENT</a>
 
-
-
-
-
-
-
-
+                                            <a class="dropdown-item" href="~/Content/bookpurchasepolicy.pdf">BOOK PURCHASE PROCEDURE</a>
 
 
 
-                                    @*<li><a href="">None </a></li>
-            <li><a href="contact.html">Contact us</a></li>*@
+                                        </div>
+                                    </li>
+                                }
+                                @if (Session["ID"] != null)
+                                {
+
+                                    <li>
+                                        <a href="@Url.Action("Login", "users")" style="font-family:serif;font-size:small;">Catalogue</a>
+                                    </li>
+
+
+                                }
+
+
+                                @if (Session["ID"] != null)
+                                {
+
+                                    <li>
+                                        <a href="@Url.Action("Index", "users")" style="font-family:serif;font-size:small;">Community</a>
+                                    </li>
+
+
+                                }
+                                @if (Session["ID"] == null)
+                                {
+                                    <li><a href="@Url.Action("LogIn", "Users")" style="font-family:serif;font-size:small;">Login</a></li>
                                     <li class="d_none"><a href="@Url.Action("LogIn","Admins")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                    <li class="d_none"><a href="@Url.Action("LogIn","staffs")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 
-                                </ul>
+
+                                }
+
+                                @if (Session["ID"] != null)
+                                {
+                                    <li>
+                                        @*<li><a href="@Url.Action("", "Users")" style="font-family:serif;font-size:small;">Login</a></li>*@
+
+                                        <a href="@Url.Action("Logout", "Users")" style="font-family:serif;font-size:small;">Logout</a>
+                                    </li>
+
+                                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                @*<li><a href="">None </a></li>
+        <li><a href="contact.html">Contact us</a></li>*@
+                                @*<li class="d_none"><a href="@Url.Action("LogIn","Admins")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+        <li class="d_none"><a href="@Url.Action("LogIn","staffs")"><i class="fa fa-user" aria-hidden="true"></i></a></li>*@
+
+                            </ul>
 
                             <button class="nav-toggler">
                                 <span></span>
@@ -199,7 +263,7 @@
                                         <li><a href="@Url.Action("Index","carrers")" style="font-family: serif; color: white;">Careers</a></li>
 
 
-                                        <li><a href="@Url.Action("Login","Users")" style="font-family: serif; color: white;">Catalogue</a></li>
+                                        @*<li><a href="@Url.Action("Login","Users")" style="font-family: serif; color: white;">Catalogue</a></li>*@
                                         <li><a href="@Url.Action("Create","contacts")" style="font-family: serif; color: white;">Contact</a></li>
 
                                         @*<li><a href="blog.html">Blog</a></li>
@@ -208,7 +272,7 @@
                                 </div>
                             </div>
 
-                            @*<form id="colof" class="form_subscri">*@
+                            @*<form id="colof" class="form_subscri"
                             @*<input class="newsl" placeholder="Email" type="text" name="Email">*@
                             @*<button class="subsci_btn">Subscribe</button>*@
                             @*</form>

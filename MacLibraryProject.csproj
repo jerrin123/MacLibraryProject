@@ -142,10 +142,12 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CommunitiesController.cs" />
     <Compile Include="Controllers\contactsController.cs" />
+    <Compile Include="Controllers\DbooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\LeavesController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\staffsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\VideobooksController.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="Models\Dbook.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dmodel.cs" />
     <Compile Include="Models\Item.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -201,6 +204,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Payment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QModel.cs" />
+    <Compile Include="Models\Question.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Request.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\staff.cs">
@@ -248,16 +258,20 @@
     <Content Include="Content\User\css\bootstrap.min.css" />
     <Content Include="Content\User\css\font-awesome.min.css" />
     <Content Include="Content\User\css\icomoon.css" />
+    <Content Include="Content\User\css\login.css" />
     <Content Include="Content\User\css\nice-select.css" />
     <Content Include="Content\User\css\niceCountryInput.css" />
     <Content Include="Content\User\css\owl.carousel.min.css" />
     <Content Include="Content\User\css\responsive.css" />
     <Content Include="Content\User\css\audio.css" />
     <Content Include="Content\User\css\ebook.css" />
+    <Content Include="Content\User\css\Table.css" />
     <Content Include="Content\User\css\this.css" />
     <Content Include="Content\User\css\style.css" />
     <Content Include="Content\User\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\User\images\about_img.jpg" />
+    <Content Include="Content\User\images\ai.jpg" />
+    <Content Include="Content\User\images\aii.jpg" />
     <Content Include="Content\User\images\banner.jpg" />
     <Content Include="Content\User\images\banner_img.jpg" />
     <Content Include="Content\User\images\blog1.jpg" />
@@ -276,12 +290,14 @@
     <Content Include="Content\User\images\play_icon.png" />
     <Content Include="Content\User\images\portfolio-2 %282%29.jpg" />
     <Content Include="Content\User\images\portfolio-4.jpg" />
+    <Content Include="Content\User\images\PXL_20220317_124626387 %281%29.jpg" />
     <Content Include="Content\User\images\service1.jpg" />
     <Content Include="Content\User\images\service2.jpg" />
     <Content Include="Content\User\images\service3.jpg" />
     <Content Include="Content\User\images\test1.png" />
     <Content Include="Content\User\images\test2.png" />
     <Content Include="Content\User\images\test3.png" />
+    <Content Include="Content\User\images\today.jpg" />
     <Content Include="Content\User\js\bootstrap-datepicker.min.js" />
     <Content Include="Content\User\js\bootstrap.bundle.min.js" />
     <Content Include="Content\User\js\bootstrap.js" />
@@ -305,6 +321,7 @@
     <Content Include="images\3.jpg" />
     <Content Include="images\4.jpg" />
     <Content Include="images\5.jpg" />
+    <Content Include="images\6263233.jpg" />
     <Content Include="images\arrow.png" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\close.png" />
@@ -321,12 +338,17 @@
     <Content Include="images\g7.jpg" />
     <Content Include="images\g8.jpg" />
     <Content Include="images\g9.jpg" />
+    <Content Include="images\IMG20220915135451.jpg" />
+    <Content Include="images\IMG_20221216_103659~2.jpg" />
     <Content Include="images\next.png" />
+    <Content Include="images\ppp.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\t1.jpg" />
     <Content Include="images\t2.jpg" />
     <Content Include="images\t3.jpg" />
     <Content Include="images\t4.jpg" />
+    <Content Include="images\Untitled design.png" />
+    <Content Include="images\zz.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\easing.js" />
     <Content Include="js\jquery-2.1.4.min.js" />
@@ -529,6 +551,23 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\LogIn.cshtml" />
+    <Content Include="Views\Dbooks\Create.cshtml" />
+    <Content Include="Views\Dbooks\Delete.cshtml" />
+    <Content Include="Views\Dbooks\Details.cshtml" />
+    <Content Include="Views\Dbooks\Edit.cshtml" />
+    <Content Include="Views\Dbooks\Index.cshtml" />
+    <Content Include="Views\Home\DbookB.cshtml" />
+    <Content Include="Views\Home\Wishlist.cshtml" />
+    <Content Include="Views\Questions\Create.cshtml" />
+    <Content Include="Views\Questions\Delete.cshtml" />
+    <Content Include="Views\Questions\Details.cshtml" />
+    <Content Include="Views\Questions\Edit.cshtml" />
+    <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Home\QB.cshtml" />
+    <Content Include="Views\Home\Audiohome.cshtml" />
+    <Content Include="Views\Home\Videohome.cshtml" />
+    <Content Include="Views\Home\Ebookhome.cshtml" />
+    <Content Include="Views\Home\Questionhome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

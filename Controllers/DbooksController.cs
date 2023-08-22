@@ -10,136 +10,119 @@ using MacLibraryProject.Models;
 
 namespace MacLibraryProject.Controllers
 {
-    public class AdminsController : Controller
+    public class DbooksController : Controller
     {
         private LibraryDbEntities db = new LibraryDbEntities();
 
-        // GET: Admins
-        //public ActionResult Index()
-        //{
-        //    return View(db.Admins.ToList());
-        //}
-
+        // GET: Dbooks
         public ActionResult Index()
         {
-            var availables = db.Availables.Include(a => a.Item);
-            return View(availables.ToList());
+            return View(db.Dbooks.ToList());
         }
-        // GET: Admins/Details/5
+
+        // GET: Dbooks/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Dbook dbook = db.Dbooks.Find(id);
+            if (dbook == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
-        }
-        public ActionResult LogIn()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult LogIn(Admin a)
-        {
-            int res = db.Admins.Where(x => x.Admin_Email == a.Admin_Email && x.Admin_Password == a.Admin_Password).Count();
-            if (res == 1)
-            {
-                return RedirectToAction("Admin", "Home");
-            }
-            else
-            {
-                //Response.Write("<script>alert('Invalid Username/Password'); </script>");
-                return View();
-            }
+            return View(dbook);
         }
 
-        public ActionResult UserList()
-        {
-            return View(db.Users.ToList());
-        }
-        // GET: Admins/Create
-       
-        // GET: Admins/Create
+        // GET: Dbooks/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admins/Create
+        // POST: Dbooks/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Admin_Id,Admin_Email,Admin_Password")] Admin admin)
+        public ActionResult Create( Dbook dbook)
         {
             if (ModelState.IsValid)
             {
-                db.Admins.Add(admin);
-                db.SaveChanges();
-                return RedirectToAction("LogIn");
+
+                dbook.Ebk_file.SaveAs(Server.MapPath("~/Book/" + dbook.Ebk_file.FileName));
+                //product.Prod_Pic = "~/ProPic/" + product.Pro_Pic.FileName;
+                if (dbook.Ebk_file.FileName != "")
+                {
+                    dbook.Ebook_Pdf = "~/Book/" + dbook.Ebk_file.FileName;
+                    db.Dbooks.Add(dbook);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    dbook.Ebook_Pdf = null;
+                }
+
+                return RedirectToAction("Index");
             }
 
-            return View(admin);
+            return View(dbook);
         }
 
-        // GET: Admins/Edit/5
+        // GET: Dbooks/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Dbook dbook = db.Dbooks.Find(id);
+            if (dbook == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(dbook);
         }
 
-        // POST: Admins/Edit/5
+        // POST: Dbooks/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Admin_Id,Admin_Email,Admin_Password")] Admin admin)
+        public ActionResult Edit([Bind(Include = "Ebooks_Id,Ebook_Name,Ebook_Decription,Ebook_Pdf,Ebook_Author")] Dbook dbook)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(admin).State = EntityState.Modified;
+                db.Entry(dbook).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(admin);
+            return View(dbook);
         }
 
-        // GET: Admins/Delete/5
+        // GET: Dbooks/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Dbook dbook = db.Dbooks.Find(id);
+            if (dbook == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(dbook);
         }
 
-        // POST: Admins/Delete/5
+        // POST: Dbooks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Admin admin = db.Admins.Find(id);
-            db.Admins.Remove(admin);
+            Dbook dbook = db.Dbooks.Find(id);
+            db.Dbooks.Remove(dbook);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -152,7 +135,5 @@ namespace MacLibraryProject.Controllers
             }
             base.Dispose(disposing);
         }
-
-
     }
 }

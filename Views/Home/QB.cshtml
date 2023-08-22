@@ -1,7 +1,6 @@
-﻿@model MacLibraryProject.Models.AudioModel
-
+﻿@model MacLibraryProject.Models.QModel
 @{
-    ViewBag.Title = "AudioB";
+    ViewBag.Title = "QB";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,71 +15,71 @@
     @*<link href="~/Content/User/css/audio.css" rel="stylesheet" />*@
 
 
-<style>
-    .card-container {
-        background-image: url('https://images7.alphacoders.com/132/1326369.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        padding: 50px 0; /* Add padding to adjust spacing */
-        /*height: 100vh;*/ /* Cover the entire viewport height */
-    }
-    .card {
-        border-radius: 15px;
-        border: 2px solid white;
-        background-color: black;
-        overflow: hidden;
-    }
-
-        .card:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease-in-out;
+    <style>
+        .card-container {
+            background-image: url('https://images7.alphacoders.com/132/1326369.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding: 50px 0; /* Add padding to adjust spacing */
+            /*height: 100vh;*/ /* Cover the entire viewport height */
         }
 
-    .card-body {
-        padding: 15px;
-    }
-
-    .h5 a {
-        color: white;
-        text-decoration: none;
-    }
-
-        .h5 a:hover {
-            text-decoration: underline;
+        .card {
+            border-radius: 15px;
+            border: 2px solid white;
+            background-color: black;
+            overflow: hidden;
         }
 
-    .mb-0 {
-        color: white;
-        font-weight: bold;
-        font-family: serif;
-        margin-bottom: 0;
-    }
+            .card:hover {
+                transform: scale(1.05);
+                transition: transform 0.3s ease-in-out;
+            }
 
-    audio {
-        width: 100%;
-    }
- 
-
-    .btn {
-        margin: 10px;
-        padding: 15px 30px;
-        font-size: 18px;
-        border: none;
-        border-radius: 5px;
-        background-color: #dc3545; /* Button color */
-        color: white;
-        text-decoration: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-        .btn:hover {
-            background-color: #c82333; /* Darker color on hover */
-            transform: scale(1.05); /* Slight scaling on hover */
+        .card-body {
+            padding: 15px;
         }
-    
-</style>
+
+        .h5 a {
+            color: white;
+            text-decoration: none;
+        }
+
+            .h5 a:hover {
+                text-decoration: underline;
+            }
+
+        .mb-0 {
+            color: white;
+            font-weight: bold;
+            font-family: serif;
+            margin-bottom: 0;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+
+        .btn {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #dc3545; /* Button color */
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+            .btn:hover {
+                background-color: #c82333; /* Darker color on hover */
+                transform: scale(1.05); /* Slight scaling on hover */
+            }
+    </style>
 
 
 </head>
@@ -126,7 +125,7 @@
             <div class="row " style="margin-right:20px;">
 
                 <div class="row">
-                    @foreach (var o in Model.Aid)
+                    @foreach (var o in Model.Qid)
                     {
                         <div class="col-md-3 mb-4">
                             <div class="card text-light bg-dark">
@@ -138,13 +137,24 @@
                                     </a>
                                 </div>
                                 <div class="card-body text-center">
-                                    <h5 class="h5 font-weight-bold"><a href="#" target="_blank" style="font-family: serif; font-weight: bold;">@o.Audio_Name</a></h5>
-                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.Audio_Description</p>
-                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.Audio_Subject</p>
-                                    <audio controls controlsList="nodownload" oncontextmenu="return false;">
-                                        <source src="@Url.Content(o.Audio_File)" type="audio/mp3">
-                                        Your browser does not support the audio element.
-                                    </audio>
+                                    <h5 class="h5 font-weight-bold"><a href="#" target="_blank" style="font-family: serif; font-weight: bold;">@o.title</a></h5>
+                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.Semester</p>
+
+                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.Subject</p>
+                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.Semester</p>
+                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.year</p>
+
+
+                                    <!--<audio controls controlsList="nodownload" oncontextmenu="return false;">-->
+                                    @*<source src="@Url.Content(o.Audio_File)" type="audio/mp3">*@
+                                    <!--Your browser does not support the audio element.-->
+                                    @*</audio>*@
+
+                                    <ul>
+                                        <li class="tag__item play blue">
+                                            <a href="@Url.Content(o.Q_Pdf)" class="btn btn-success"> Read  Book </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -165,5 +175,6 @@
     </div>
 </body>
 </html>
+
 
 

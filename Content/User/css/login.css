@@ -1,0 +1,127 @@
+﻿/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-weight:bold
+}
+
+/* Login form container */
+.form-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-block-color: black;
+    text-align:center;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Background image */
+body {
+    
+    background-image: url('../images/today.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Form header */
+.form-container h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input styling */
+.form-group {
+    margin-bottom: 40px;
+}
+
+.control-label {
+    text-align: right;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Password reveal buttons */
+.password-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.password-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 6px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Error message styling */
+.text-danger {
+    color: #d9534f;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #337ab7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .btn:hover {
+        background-color: #286090;
+    }
+
+/* Center align text */
+.text-center {
+    text-align: center;
+}
+
+
+/* ... Previous styles ... */
+
+/* Password toggle label */
+.password-toggle-label {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #337ab7;
+    font-size: 14px;
+}
+
+/* Password toggle input */
+.password-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Password toggle icon */
+.password-toggle-icon::before {
+    content: '\1F441'; /* Unicode for "Eye" symbol */
+    font-size: 18px;
+}
+
+/* Show password styling */
+.password-toggle:checked + .password-toggle-label .password-toggle-icon::before {
+    content: '\1F576'; /* Unicode for "Eye with Line Through It" symbol */
+}

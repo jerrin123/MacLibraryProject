@@ -1,0 +1,105 @@
+﻿/* Custom styles for the Dbook form */
+.form-box {
+    max-width: 500px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    padding: 20px; /* Add padding to create a box */
+    border: 1px solid #ccc; /* Add border for the form box */
+    background-color: #ffffff; /* Background color for the form box */
+}
+
+.h2 {
+    text-align: center;
+    font-family: serif;
+}
+
+.form-box h4 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.form-box .form-group {
+    margin-bottom: 20px;
+}
+
+.form-box .control-label {
+    font-weight: bold;
+}
+
+.form-box .btn {
+    width: 100%;
+}
+
+/* Custom file input styles */
+.custom-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.custom-file-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    margin: 0;
+    opacity: 0;
+}
+
+.custom-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    padding: 0.375rem 0.75rem;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+/* For the form border */
+.form-outline {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+/* Applying the custom styles to the button */
+.text-center .btn {
+    width: auto; /* Adjust the button width if needed */
+    margin-top: 10px; /* Add some margin for spacing */
+}
+
+/* Applying the custom styles to the labels */
+.form-outline .form-label {
+    position: absolute;
+    top: 0.75rem;
+    left: 1rem;
+    font-size: 0.875rem;
+    color: #495057;
+    pointer-events: none;
+    z-index: 1;
+    transform: translateY(-50%);
+    transition: all 0.1s ease-in-out;
+}
+
+.form-outline .form-control:focus + .form-label,
+.form-outline .form-control:not(:placeholder-shown) + .form-label {
+    top: -0.25rem;
+    font-size: 0.75rem;
+    color: #007bff;
+}
+
+/* Additional styling for the table */
+table {
+    float: right; /* Move the table to the right side */
+    margin-left: 20px; /* Add some spacing between the form and the table */
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}

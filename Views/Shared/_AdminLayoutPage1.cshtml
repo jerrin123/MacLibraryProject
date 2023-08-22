@@ -41,42 +41,58 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="@Url.Action("Index","Items")">
+                            <a class="nav-link" href="@Url.Action("UserList","Admins")">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Items List
+                                Library Users
                             </a>
                             <div class="sb-sidenav-menu-heading">User</div>
-                            <a class="nav-link collapsed" href="@Url.Action("UserList","Admins")" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                                Manaage Digital Books
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    <a class="nav-link" href="@Url.Action("Create","AudioTables")">Add Audio Books</a>
+                                    <a class="nav-link" href="@Url.Action("Index","AudioTables")">Manage Audio Books</a>
+
+                                    <a class="nav-link" href="@Url.Action("Create","Videobooks")">Add Video Books</a>
+                                    <a class="nav-link" href="@Url.Action("Index","Videobooks")">Manage Video Books</a>
+
+
+                                    <a class="nav-link" href="@Url.Action("Create","Dbooks")">Add E-Books</a>
+                                    <a class="nav-link" href="@Url.Action("Index","Dbooks")">Add E-Books</a>
+
+                                    <a class="nav-link" href="layout-sidenav-light.html">Add Question Bank </a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Add Papers</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Add  Other Natreials</a>
+
+
+
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Items
+                                Manage Physical Books
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
+                                    <a class="nav-link collapsed" href="@Url.Action("Create","")" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Add Jobs
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                            <a class="nav-link" href="@Url.Action("Index","Items")">Manage Catalogue</a>
+                                            <a class="nav-link" href="@Url.Action("Create","Items")">Add Physical Books</a>
+
+                                            <a class="nav-link" href="@Url.Action("Index","Admins")">Manage Availability</a>
+                                            <a class="nav-link" href="@Url.Action("Create","Availables")">Add Physical Books Availability</a>
                                         </nav>
                                     </div>
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
+
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                     </a>
                                     <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
@@ -89,13 +105,18 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="@Url.Action("UserList","Admins")">
+                            <a class="nav-link" href="@Url.Action("Create","Categories")">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                User List
+                                Add Category
                             </a>
-                            <a class="nav-link" href="@Url.Action("Create","Availables")">
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" href="@Url.Action("Index","Categories")">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Manage Category
+                            </a>
+                            <a class="nav-link" href="@Url.Action("Index","Leaves")">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Physical Book Details
+                                Leave Request
                             </a>
                             <a class="nav-link" href="@Url.Action("Index","contacts")">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
@@ -193,7 +214,9 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div class="col-md-12">
+                                <p style="font-family:serif;">© Copyright © 2021 MACFAST. All Rights Reserved. Design by <a href="https://www.linkedin.com/in/jerrin-jacob23/" style="color:red; font-family:serif;"></>JERRIN JACOB </a></p>
+                            </div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

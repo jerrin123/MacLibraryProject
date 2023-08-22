@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Audiohome";
+
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <style>
+        .about {
+            background-color: #222;
+            padding: 50px 0;
+        }
+
+        .about-heading {
+            font-size: 32px;
+            font-family: serif;
+            background: linear-gradient(45deg, #ff00cc, #00ffcc);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .about-text {
+            font-family: serif;
+            color: white;
+            margin-bottom: 20px;
+            max-width: 70%;
+        }
+
+        .view-button {
+            background-color: #ff00cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="about">
+        <div class="container_width">
+            <div class="row d_flex grig">
+                <div class="col-md-6">
+                    <div class="about_img">
+                        <figure>
+
+                            @*<img src="~/images/IMG_20221216_103659~2.jpg" />*@
+                            <img src="~/images/IMG20220915135451.jpg" />
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-6 order">
+                    <div class="titlepage text_align_left">
+                        <h2 class="about-heading " style="color:red;"> AUDIO BOOKS</h2>
+                        <h3 class="about-text" style="text-align:justify;">MACFAST Digital Library's audio book collection is designed to cater to every interest and curiosity. Dive into the depth of knowledge, escape to distant worlds, and let the words weave their magic around you. Expand your horizons and enrich your daily routine with our extensive and ever-growing audio book selection, promising an engaging experience that resonates beyond the pages."</h3>
+                        <a class="view-button" href="@Url.Action("AudioB", "Home")">View Audio Books</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

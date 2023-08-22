@@ -7,15 +7,39 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
 namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Admin
     {
         public int Admin_Id { get; set; }
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Please enter your Email Address.")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
         public string Admin_Email { get; set; }
+
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "Please enter your password ")]
+        [DataType(DataType.Password)]
         public string Admin_Password { get; set; }
     }
 }
+
+
+
+//public int Admin_Id { get; set; }
+//[Display(Name = "Email")]
+//[Required(ErrorMessage = "Please enter your Email Address.")]
+//[EmailAddress(ErrorMessage = "Please enter a valid email address.")]
+//public string Admin_Email { get; set; }
+
+//[Display(Name = "Password")]
+//[Required(ErrorMessage = "Please enter your password ")]
+//[DataType(DataType.Password)]
+//public string Admin_Password { get; set; }

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+
 <html>
 <head>
     <title>Styled Item Table</title>
@@ -103,11 +103,11 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Item.item_name)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.Available_Id }) |
                         @Html.ActionLink("Details", "Details", new { id = item.Available_Id }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.Available_Id })
-                    </td>
+                    </td>*@
                 </tr>
             }
 

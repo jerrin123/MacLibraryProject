@@ -29,5 +29,7 @@ namespace MacLibraryProject
 
         public DbSet <Dbook> Dbooks { get; set; }
 
+        public DbSet <Question> Questions { get; set; }
+
     }
 }

@@ -117,6 +117,27 @@
           <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="amount" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="Q_id" />
+          </Key>
+          <Property Name="Q_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Semester" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="year" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Q_Pdf" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Q_title" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="Req_ID" />
+          </Key>
+          <Property Name="Req_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Book_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Book_Author" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_Department" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="staff">
           <Key>
             <PropertyRef Name="staff_id" />
@@ -183,6 +204,8 @@
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="staff" EntityType="Self.staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Testimonial" EntityType="Self.Testimonial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -240,6 +263,8 @@
           <EntitySet Name="AudioTables" EntityType="LibraryDbModel.AudioTable" />
           <EntitySet Name="Testimonials" EntityType="LibraryDbModel.Testimonial" />
           <EntitySet Name="Dbooks" EntityType="LibraryDbModel.Dbook" />
+          <EntitySet Name="Questions" EntityType="LibraryDbModel.Question" />
+          <EntitySet Name="Requests" EntityType="LibraryDbModel.Request" />
           </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -402,6 +427,27 @@
           <Property Name="Ebook_Decription" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Ebook_Pdf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Ebook_Author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="Q_id" />
+          </Key>
+          <Property Name="Q_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Semester" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="year" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Q_Pdf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Q_title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="Req_ID" />
+          </Key>
+          <Property Name="Req_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Book_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Book_Author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -575,6 +621,29 @@
                 <ScalarProperty Name="Ebook_Decription" ColumnName="Ebook_Decription" />
                 <ScalarProperty Name="Ebook_Name" ColumnName="Ebook_Name" />
                 <ScalarProperty Name="Ebooks_Id" ColumnName="Ebooks_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="LibraryDbModel.Question">
+              <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="Q_title" ColumnName="Q_title" />
+                <ScalarProperty Name="Q_Pdf" ColumnName="Q_Pdf" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Q_id" ColumnName="Q_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="LibraryDbModel.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="Student_Department" ColumnName="Student_Department" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="Book_Author" ColumnName="Book_Author" />
+                <ScalarProperty Name="Book_Name" ColumnName="Book_Name" />
+                <ScalarProperty Name="Req_ID" ColumnName="Req_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MacLibraryProject.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Q_Pdf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Q_title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.year)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Q_Pdf)*@
+            <object data="@Url.Content(item.Q_Pdf)" type="application/pdf" width="100%" height="500">
+            </object>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Q_title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Q_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Q_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Q_id })
+        </td>
+    </tr>
+}
+
+</table>
