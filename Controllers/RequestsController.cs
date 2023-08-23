@@ -10,137 +10,107 @@ using MacLibraryProject.Models;
 
 namespace MacLibraryProject.Controllers
 {
-    public class UsersController : Controller
+    public class RequestsController : Controller
     {
         private LibraryDbEntities db = new LibraryDbEntities();
 
-        // GET: Users
+        // GET: Requests
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.Requests.ToList());
         }
 
-        // GET: Users/Details/5
+        // GET: Requests/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Request request = db.Requests.Find(id);
+            if (request == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(request);
         }
 
-        // GET: Users/Create
-        public ActionResult SignUp()
+        // GET: Requests/Create
+        public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Requests/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignUp([Bind(Include = "User_Id,User_Firstname,User_Lastname,User_Email,User_Password,User_Contact,User_Department")] User user)
+        public ActionResult Create([Bind(Include = "Req_ID,Book_Name,Book_Author,Student_Name,Student_Department")] Request request)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.Requests.Add(request);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return View(request);
         }
-        public ActionResult LogIn()
-        {
-            return View();
-        }
-        [HttpPost]
 
-        public ActionResult LogIn(User c)
-        {
-            var cust = db.Users.Where(x => x.User_Email == c.User_Email && x.User_Password == c.User_Password).Count();
-            var id = db.Users.Where(x => x.User_Email == c.User_Email && x.User_Password == c.User_Password).Select(v => v.User_Id).FirstOrDefault();
-            var idd = db.Users.FirstOrDefault(x => x.User_Email == c.User_Email && x.User_Password == c.User_Password);
-            Session["CID"] = id;
-            Session["CIDD"] = idd;
-            if (cust > 0)
-            {
-                Session["ID"] = cust;
-                Response.Write("<script>alert('Invalid Username/Password'); </script>");
-                return RedirectToAction("userd", "Home");
-            }
-            else
-            {
-
-                return View();
-            }
-        }
-        public ActionResult Logout()
-        {
-            Session["ID"] = null;
-            return RedirectToAction("Index", "Home");
-        }
-        // GET: Users/Edit/5
+        // GET: Requests/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Request request = db.Requests.Find(id);
+            if (request == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(request);
         }
 
-      
-        // POST: Users/Edit/5
+        // POST: Requests/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "User_Id,User_Firstname,User_Lastname,User_Email,User_Password,User_Contact,User_Department")] User user)
+        public ActionResult Edit([Bind(Include = "Req_ID,Book_Name,Book_Author,Student_Name,Student_Department")] Request request)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(request).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return View(request);
         }
 
-        // GET: Users/Delete/5
+        // GET: Requests/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Request request = db.Requests.Find(id);
+            if (request == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(request);
         }
 
-        // POST: Users/Delete/5
+        // POST: Requests/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Request request = db.Requests.Find(id);
+            db.Requests.Remove(request);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -153,7 +123,5 @@ namespace MacLibraryProject.Controllers
             }
             base.Dispose(disposing);
         }
-
-      
     }
 }
