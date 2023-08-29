@@ -5,49 +5,109 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<html>
+<head>
+    <style>
 
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.carrer_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.carrer_position)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.carrer_qualification)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.carrer_desc)
-        </th>
-        <th></th>
-    </tr>
+            .table th, .table td {
+                border: 1px solid #ccc;
+                padding: 8px;
+                text-align: left;
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.carrer_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.carrer_position)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.carrer_qualification)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.carrer_desc)
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.carrer_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.carrer_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.carrer_id })*@
-            <a href="mailto:jerrinjacob1999@gmail.com" class="btn btn-outline-dark">Send CV</a>
-        </td>
-    </tr>
-}
+            .table th {
+                background-color: #f2f2f2;
+            }
 
-</table>
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin: 2px;
+            font-size: 14px;
+            border: 1px solid #333;
+            text-decoration: none;
+            color: #333;
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+
+            .btn:hover {
+                background-color: #333;
+                color: #fff;
+            }
+
+        .card-container {
+/*            background-image: url('https://images7.alphacoders.com/132/1326369.png');
+*/            background-size: cover;
+            background-repeat: no-repeat;
+            /*            background-attachment: fixed;
+*/ padding: 50px 0; /* Add padding to adjust spacing */
+            /*height: 100vh;*/ /* Cover the entire viewport height */
+        }
+    </style>
+</head>
+<body>
+    <div class="btn-box">
+
+        <a href="@Url.Action("Index","Home")">
+            Back to Prevoius
+        </a>
+    </div>
+    <section class="product_section layout_padding">
+        <div class="card-container">
+            @*<p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>*@
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.carrer_name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.carrer_position)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.carrer_qualification)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.carrer_desc)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.carrer_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.carrer_position)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.carrer_qualification)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.carrer_desc)
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("Edit", "Edit", new { id=item.carrer_id }) |
+                                @Html.ActionLink("Details", "Details", new { id=item.carrer_id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id=item.carrer_id })*@
+                            <a href="mailto:jerrinjacob1999@gmail.com" class="btn btn-outline-dark">Send CV</a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </section>
+</body>
+</html>

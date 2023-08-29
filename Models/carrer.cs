@@ -11,13 +11,26 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class carrer
     {
         public int carrer_id { get; set; }
+
+        [Required(ErrorMessage ="Career Name is Required")]
+        [Display(Name ="Position")]
         public string carrer_name { get; set; }
+
+        [Required(ErrorMessage ="Number of position is required")]
+        [Display(Name ="Number of Position")]
         public string carrer_position { get; set; }
+
+        [Required(ErrorMessage ="Qualification Required")]
+        [Display(Name ="Higest Qualification")]
         public string carrer_qualification { get; set; }
+
+        [Required(ErrorMessage ="Job Description Required")]
+        [Display(Name = "Job Description")]
         public string carrer_desc { get; set; }
     }
 }

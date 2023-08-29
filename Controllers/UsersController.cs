@@ -20,6 +20,26 @@ namespace MacLibraryProject.Controllers
             return View(db.Users.ToList());
         }
 
+        public ActionResult UB(int? id)
+        {
+            usedbook o = new usedbook();
+
+
+
+
+            if (id == null)
+            {
+                o.Cid = db.Communities.ToList();
+            }
+            else
+            {
+                // o.Out = db.VideoB.Where(z => z.branch_fid == id).ToList();
+            }
+
+            return View(o);
+
+        }
+
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {

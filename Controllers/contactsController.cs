@@ -112,7 +112,7 @@ namespace MacLibraryProject.Controllers
             contact contact = db.contacts.Find(id);
             db.contacts.Remove(contact);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("LogIn");
         }
 
         protected override void Dispose(bool disposing)

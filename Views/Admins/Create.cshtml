@@ -2,58 +2,96 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+    //Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+    Layout = null;
 }
 <head>
+    <style>
+        /* Style for centering the form */
+        .custom-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
 
+        /* Style for the form itself */
+        .form-horizontal {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Style for the password toggle */
+        .password-input-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
 </head>
-<h2>Create</h2>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Admin</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Admin_Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Admin_Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Admin_Email, "", new { @class = "text-danger" })
+   
+
+    @using (Html.BeginForm("Create", "Admins", FormMethod.Post, new { @class = "custom-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+       
+        <center>
+            <div class="form-horizontal">
+                <h4>Admin</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Admin_Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Admin_Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Admin_Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Admin_Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Admin_Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Admin_Password, "", new { @class = "text-danger" })
+
+
+                        <script>
+                            function togglePasswordVisibility() {
+                                var passwordInput = document.getElementById('passwordInput');
+                                if (passwordInput.type === 'password') {
+                                    passwordInput.type = 'text';
+                                }
+                                else {
+                                    passwordInput.type = 'password';
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="SignUP" class="btn btn-primary" />
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Admin_Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Admin_Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Admin_Password, "", new { @class = "text-danger" })
-
-
-                <script>
-                                                function togglePasswordVisibility() {
-                                                    var passwordInput = document.getElementById('passwordInput');
-                                                    if (passwordInput.type === 'password') {
-                                                        passwordInput.type = 'text';
-                                                    }
-                                                    else {
-                                                        passwordInput.type = 'password';
-                                                    }
-                                                }
-                </script>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Login" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
+            </center>
+            }
+            
+   
+<@*div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@

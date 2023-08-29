@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MacLibraryProject.Models;
+using Microsoft.Ajax.Utilities;
+using static System.Web.Razor.Parser.SyntaxConstants;
 
 namespace MacLibraryProject.Controllers
 {
@@ -18,7 +20,13 @@ namespace MacLibraryProject.Controllers
         public ActionResult Index()
         {
             return View(db.Questions.ToList());
+
+
+
         }
+
+
+        
 
         // GET: Questions/Details/5
         public ActionResult Details(int? id)
@@ -126,6 +134,8 @@ namespace MacLibraryProject.Controllers
             return RedirectToAction("Index");
         }
 
+        
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -134,5 +144,11 @@ namespace MacLibraryProject.Controllers
             }
             base.Dispose(disposing);
         }
+
+       
+       
+
+
     }
 }
+

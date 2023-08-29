@@ -172,17 +172,25 @@
                         @foreach (var o in Model.Vid)
                         {
                             <li class="cards_item">
-                                <div class="card" style="width: 320px;">
+                                <div class="card" style="width:900px;height:580px;">
                                     <div class="card_image">
                                         <video class="card-img-top" width="320" height="320" controls controlsList="nodownload">
                                             <source src="@Url.Content(o.Video_File)" type="video/mp4">
                                         </video>
                                     </div>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
                                     <div class="card_content">
-                                        <h2 class="card_title">@o.Video_Description</h2>
+                                        <h2 class="card_title" style="font-weight:bold;color:red; font-family:'Curlz MT';">@o.Video_Name</h2>
                                         <div class="card_text">
-                                            <p>@o.Video_Description</p>
-                                            <p>@o.Video_Subject</p>
+                                        
+                                            <p style="font-weight:bold;color:blue; font-family:'Tw Cen MT'">@o.Video_Subject</p>
+                                            
+                                                <p style="text-align:justify; color:black;">@o.Video_Description</p>
+
+
                                         </div>
                                     </div>
                                 </div>

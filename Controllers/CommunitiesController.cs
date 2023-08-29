@@ -20,6 +20,10 @@ namespace MacLibraryProject.Controllers
             return View(db.Communities.ToList());
         }
 
+        public ActionResult List()
+        {
+            return View(db.Communities.ToList());
+        }
         // GET: Communities/Details/5
         public ActionResult Details(int? id)
         {

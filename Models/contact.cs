@@ -11,13 +11,24 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class contact
     {
         public int person_id { get; set; }
+
+        [Required(ErrorMessage ="Person name is Required")]
+        [Display(Name ="Name")]
         public string person_name { get; set; }
+
+        [Required(ErrorMessage = "Phone number is Required")]
+        [Display(Name = "Phone")]
         public int person_phone { get; set; }
+        [Required(ErrorMessage = "Email is Required")]
+        [Display(Name = "Email")]
         public string person_email { get; set; }
+        [Required(ErrorMessage = "Type Your Message")]
+        [Display(Name = "Message")]
         public string messages { get; set; }
     }
 }

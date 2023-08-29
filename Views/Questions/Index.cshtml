@@ -5,56 +5,155 @@
     Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Subject)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Semester)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.year)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Q_Pdf)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Q_title)
-        </th>
-        <th></th>
-    </tr>
+<head>
+    <style>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subject)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Semester)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.year)
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.Q_Pdf)*@
-            <object data="@Url.Content(item.Q_Pdf)" type="application/pdf" width="100%" height="500">
-            </object>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Q_title)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Q_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Q_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Q_id })
-        </td>
-    </tr>
-}
+       
 
-</table>
+        /* Apply styles to the entire table */
+        .custom-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            /* Style for alternating row background colors */
+            .custom-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            /* Apply border to table cells */
+            .custom-table td, .custom-table th {
+                border: 1px solid #dddddd;
+                padding: 8px;
+                text-align: left;
+                color:white;
+            }
+
+        /* Style for the links in the last <td> */
+        .table-links a {
+            margin-right: 5px;
+            text-decoration: none;
+            color: blue;
+        }
+        .card-container {
+            /*            background-image: url('https://w0.peakpx.com/wallpaper/362/759/HD-wallpaper-white-book-page-on-gray-textile.jpg');
+        */
+            background-color: black;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding: 50px 0; /* Add padding to adjust spacing */
+            /*height: 100vh;*/ /* Cover the entire viewport height */
+        }
+
+        /* Existing styles */
+
+        /* Style for the Create New button */
+        .create-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+
+
+    </style>
+
+</head>
+
+<body>
+    <section class="product_section layout_padding">
+        <div class="card-container">
+
+
+            <h2 style="color:white; font-family:'Curlz MT'; color:red; text-align:center; font-weight:bold;">Index</h2>
+
+            @*<p  >
+            <button class="btn btn-danger>
+                @Html.ActionLink("Create New", "Create")
+            </button>
+        </p>*@
+            <center>
+            <p>
+                <button class="btn btn-primary">
+                    @Html.ActionLink("Create New", "Create", null, new { style = "color: white; text-decoration: none;" })
+                </button>
+            </p>
+
+                </center>
+
+            <table class="table">
+                <tr>
+                    <th style="color:white;">
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </th>
+                    <th style="color:white;">
+                        @Html.DisplayNameFor(model => model.Semester)
+                    </th>
+                    <th style="color:white;">
+                        @Html.DisplayNameFor(model => model.year)
+                    </th>
+                    <th style="color:white;">
+                        @Html.DisplayNameFor(model => model.Q_Pdf)
+                    </th>
+                    <th style="color:white;">
+                        @Html.DisplayNameFor(model => model.Q_title)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="color:white;">
+                            @Html.DisplayFor(modelItem => item.Subject)
+                        </td>
+                        <td style="color:white;">
+                            @Html.DisplayFor(modelItem => item.Semester)
+                        </td>
+                        <td style="color:white;">
+                            @Html.DisplayFor(modelItem => item.year)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Q_Pdf)*@
+                            <object data="@Url.Content(item.Q_Pdf)" type="application/pdf" width="100%" height="500">
+                            </object>
+                        </td>
+                        <td style="color:white;">
+                            @Html.DisplayFor(modelItem => item.Q_title)
+                        </td>
+                        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Q_id } ) |
+            @Html.ActionLink("Details", "Details", new { id = item.Q_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Q_id })
+        </td>*@
+                        <td>
+                            <button class="btn btn-primary">
+                                <a href="@Url.Action("Edit", new { id = item.Q_id })" style="color: white; text-decoration: none;">Edit</a>
+                            </button>
+                            <button class="btn btn-info">
+                                <a href="@Url.Action("Details", new { id = item.Q_id })" style="color: white; text-decoration: none;">Details</a>
+                            </button>
+                            <button class="btn btn-danger">
+                                <a href="@Url.Action("Delete", new { id = item.Q_id })" style="color: white; text-decoration: none;">Delete</a>
+                            </button>
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+        </section>
+</body>

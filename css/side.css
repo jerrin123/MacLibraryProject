@@ -1,0 +1,24 @@
+﻿<style >
+/* Your existing styles here */
+/* Additional styles for hiding the sidebar by default */
+#layoutSidenav {
+    transition: margin-left 0.5s;
+    margin-left: -250px; /* Negative value to hide the sidebar */
+    overflow-x: hidden;
+}
+
+#layoutSidenav.show {
+    margin-left: 0; /* Display the sidebar */
+}
+
+/* Adjustments to accommodate the sidebar animation */
+#layoutSidenav_nav {
+    transition: width 0.5s;
+    width: 0;
+}
+
+#layoutSidenav.show #layoutSidenav_nav {
+    width: 250px; /* Width of the sidebar when displayed */
+}
+
+</style >

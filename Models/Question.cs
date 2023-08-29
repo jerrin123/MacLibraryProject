@@ -11,17 +11,29 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web;
+    using System.Xml.Linq;
 
     public partial class Question
     {
         public int Q_id { get; set; }
+        [Required(ErrorMessage = "Course adn Subject Is Required")]
+        [Display(Name = "Course & Subject")]
         public string Subject { get; set; }
+        [Required(ErrorMessage = "Semester Is Required")]
+        [Display(Name = "Semester")]
         public string Semester { get; set; }
+        [Required(ErrorMessage = "Year Is Required")]
+        [Display(Name = "Exam Year")]
         public string year { get; set; }
+        [Required(ErrorMessage = "File Is Required")]
+        [Display(Name = "Question Bank")]
         public string Q_Pdf { get; set; }
 
         public HttpPostedFileBase Q_p { get; set; }
+        [Required(ErrorMessage = "Exam Name Is Required")]
+        [Display(Name = "Exam Name")]
         public string Q_title { get; set; }
     }
 }

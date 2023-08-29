@@ -11,16 +11,27 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web;
+    using System.Xml.Linq;
 
     public partial class Dbook
     {
         public int Ebooks_Id { get; set; }
+        [Required(ErrorMessage = "Name Is Required")]
+        [Display(Name = "Title")]
         public string Ebook_Name { get; set; }
+        [Required(ErrorMessage = "Description Is Required")]
+        [Display(Name = "Description")]
         public string Ebook_Decription { get; set; }
+        [Required(ErrorMessage = "File Is Required")]
+        [Display(Name = "Book Pdf")]
         public string Ebook_Pdf { get; set; }
-
+       
         public HttpPostedFileBase Ebk_file { get; set; }
+        [Required(ErrorMessage = "Author name Is Required")]
+        [Display(Name = "Author")]
+
         public string Ebook_Author { get; set; }
     }
 }

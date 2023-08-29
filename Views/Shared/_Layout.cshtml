@@ -69,7 +69,7 @@
                                             <a class="dropdown-item" href="@Url.Action("Commitee", "Home")">LIBRARY COMMITEE</a>
                                             <a class="dropdown-item" href="@Url.Action("Contact", "Home")">LIBRARY COLLECTION</a>
                                             <a class="dropdown-item" href="@Url.Action("Service", "Home")">LIBRARY SERVICE</a>
-                                            <a class="dropdown-item" href="@Url.Action("Contact", "Home")">LIBRARY STAFF</a>
+                                            <a class="dropdown-item" href="@Url.Action("Staff", "Home")">LIBRARY STAFF</a>
 
 
                                         </div>
@@ -115,29 +115,8 @@
                                     </li>
                                 }
 
-                                @if (Session["ID"] != null)
-                                {
-
-                                    @*<li><a href="@Url.Action("Login", "users")" style="font-family:serif;font-size:small;">Catlogue</a></li>*@
-                                    <li class="nav-item dropdown">
-                                        <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
-                                            ECOLLECTION
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                            <a class="dropdown-item" href="@Url.Action("Audiohome", "Home")">Audio Books</a>
-                                            <a class="dropdown-item" href="@Url.Action("Videohome", "Home")">Audio Books</a>
-                                            <a class="dropdown-item" href="@Url.Action("Ebookhome", "Home")">Audio Books</a>
-                                            <a class="dropdown-item" href="@Url.Action("Questionhome", "Home")">Audio Books</a>
-
-                                            <a class="dropdown-item" href="https://macfast.org/macfast-journal/">JOURNAL OF SCIENCE AND TECHNOLOGY MANAGEMENT</a>
-
-                                            <a class="dropdown-item" href="~/Content/bookpurchasepolicy.pdf">BOOK PURCHASE PROCEDURE</a>
 
 
-
-                                        </div>
-                                    </li>
-                                }
                                 @if (Session["ID"] != null)
                                 {
 
@@ -152,49 +131,86 @@
                                 @if (Session["ID"] != null)
                                 {
 
-                                    <li>
+                                    @*<li>
                                         <a href="@Url.Action("Index", "users")" style="font-family:serif;font-size:small;">Community</a>
-                                    </li>
+                                    </li>*@
+                                    <li class="nav-item dropdown">
+                                        <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
+                                            Community
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                            <a class="dropdown-item" href="@Url.Action("UB", "Users")">Purchase Books</a>
+                                            <a class="dropdown-item" href="@Url.Action("Index", "Communities")">Manage Community</a>
+                                            </div>
+                                        </li>
 
 
-                                }
-                                @if (Session["ID"] == null)
-                                {
-                                    <li><a href="@Url.Action("LogIn", "Users")" style="font-family:serif;font-size:small;">Login</a></li>
-                                    <li class="d_none"><a href="@Url.Action("LogIn","Admins")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                                    <li class="d_none"><a href="@Url.Action("LogIn","staffs")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                            }
+                                            @if (Session["ID"] == null)
+                                            {
+                                        <li><a href="@Url.Action("LogIn", "Users")" style="font-family:serif;font-size:small;">Login</a></li>
+                                        <li class="d_none"><a href="@Url.Action("LogIn","Admins")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                        <li class="d_none"><a href="@Url.Action("LogIn","staffs")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 
 
-                                }
+                                    }
 
-                                @if (Session["ID"] != null)
-                                {
-                                    <li>
-                                        @*<li><a href="@Url.Action("", "Users")" style="font-family:serif;font-size:small;">Login</a></li>*@
+                                            @if (Session["ID"] != null)
+                                            {
 
-                                        <a href="@Url.Action("Logout", "Users")" style="font-family:serif;font-size:small;">Logout</a>
-                                    </li>
+                                                @*<li><a href="@Url.Action("Login", "users")" style="font-family:serif;font-size:small;">Catlogue</a></li>*@
+                                                <li class="nav-item dropdown">
+                                                    <a href="#" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:serif;font-size:small;">
+                                                        ECOLLECTION
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                                        <a class="dropdown-item" href="@Url.Action("Audiohome", "Home")">Audio Books</a>
+                                                        <a class="dropdown-item" href="@Url.Action("Videohome", "Home")">Video Books</a>
+                                                        <a class="dropdown-item" href="@Url.Action("Ebookhome", "Home")">E Books</a>
+                                                        <a class="dropdown-item" href="@Url.Action("Questionhome", "Home")">Question Bank</a>
 
-                                }
+                                                        <a class="dropdown-item" href="https://macfast.org/macfast-journal/">JOURNAL OF SCIENCE AND TECHNOLOGY MANAGEMENT</a>
 
-
-
-
-
-
-
-
-
-
+                                                        <a class="dropdown-item" href="~/Content/bookpurchasepolicy.pdf">BOOK PURCHASE PROCEDURE</a>
 
 
 
-                                @*<li><a href="">None </a></li>
-        <li><a href="contact.html">Contact us</a></li>*@
-                                @*<li class="d_none"><a href="@Url.Action("LogIn","Admins")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-        <li class="d_none"><a href="@Url.Action("LogIn","staffs")"><i class="fa fa-user" aria-hidden="true"></i></a></li>*@
+                                                    </div>
+                                                </li>
+                                            }
+                                            @if (Session["ID"] != null)
+                                            {
+                                                <li class="d_none"><a href="@Url.Action("Wishlist","Home")"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                                            }
 
-                            </ul>
+                                            @if (Session["ID"] != null)
+                                            {
+                                                <li>
+                                                    @*<li><a href="@Url.Action("", "Users")" style="font-family:serif;font-size:small;">Login</a></li>*@
+
+                                                    <a href="@Url.Action("Logout", "Users")" style="font-family:serif;font-size:small;">Logout</a>
+                                                </li>
+
+                                            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            @*<li><a href="">None </a></li>
+                    <li><a href="contact.html">Contact us</a></li>*@
+                                            @*<li class="d_none"><a href="@Url.Action("LogIn","Admins")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                    <li class="d_none"><a href="@Url.Action("LogIn","staffs")"><i class="fa fa-user" aria-hidden="true"></i></a></li>*@
+
+                                        </ul>
 
                             <button class="nav-toggler">
                                 <span></span>

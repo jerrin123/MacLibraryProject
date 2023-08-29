@@ -4,9 +4,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
 <p>
     <center> BOOKS COLLECTIONS</center>
 </p>
@@ -27,27 +24,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.com_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.com_desc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.com_author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.com_price)
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.com_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.com_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.com_id })*@
-            <a href="@Url.Action("Create","Payments")" class="btn btn-outline-success py-3 px-4">Buy Now</a>
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.com_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.com_desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.com_author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.com_price)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.com_id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.com_id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.com_id })*@
+                @*<a href="@Url.Action("Create","Payments")" class="btn btn-outline-success py-3 px-4">Buy Now</a>*@
+                @Html.ActionLink("Edit", "Edit", new { id = item.com_id }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.com_id }, new { @class = "btn btn-outline-secondary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.com_id }, new { @class = "btn btn-outline-danger" })
+            </td>
+        </tr>
+    }
 
 </table>

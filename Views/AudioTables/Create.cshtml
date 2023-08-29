@@ -6,55 +6,94 @@
 }
 
 
+<head>
+
+    <style>
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+/*            height: 50vh;  Adjust this value based on your requirements 
+    
+
+*/  
+/*              height:100px;
+*/        }
+        .form-horizontal {
+            /*width: 20%;*/ /* Adjust the width as needed */
+            /*height: 100px;*/ /* Adjust the height as needed */
+            padding: 500px;
+            /*border: 2px solid #ccc;*/ /* Add a small border */
+            /*            border: 2px solid #ccc;
+*/
+        }
+      
+        textarea.form-control {
+            height: 150px; /* Adjust the height as needed */
+            width: 300px;
+            resize: vertical; /* Allow vertical resizing */
+        }
+    </style>
+</head>
+
+
+<body>
+
 @using (Html.BeginForm("Create", "AudioTables", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+   
 
-    <div class="form-horizontal">
-        <h4>AudioTable</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Audio_Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Audio_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Audio_Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+       
+            <div class="center-container">
+                <div class="form-horizontal">
+                    <h4>AudioTable</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Audio_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Audio_Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Audio_Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Audio_Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Audio_Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Audio_Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Audio_Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Audio_Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Audio_Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Audio_Subject, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Audio_Subject, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Audio_Subject, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Audio_Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Audio_Subject, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Audio_Subject, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Audio_File, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @*@Html.EditorFor(model => model.Audio_File, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Audio_File, "", new { @class = "text-danger" })*@
-                <input type="file" name="Ado_file" />
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Audio_File, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.Audio_File, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Audio_File, "", new { @class = "text-danger" })*@
+                            <input type="file" name="Ado_file" />
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+</div>
+
+  
 }
-
+</body>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

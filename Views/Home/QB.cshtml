@@ -6,175 +6,139 @@
 
 <html>
 <head>
-    <link href="~/fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="~/fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
-    <link href="~/fonts/fontawesome-webfont.eot" rel="stylesheet">
-    <link href="~/fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="~/fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
-    <link href="~/fonts/fontawesome-webfont.eot" rel="stylesheet">
-    @*<link href="~/Content/User/css/audio.css" rel="stylesheet" />*@
-
-
     <style>
-        .card-container {
-            background-image: url('https://images7.alphacoders.com/132/1326369.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            padding: 50px 0; /* Add padding to adjust spacing */
-            /*height: 100vh;*/ /* Cover the entire viewport height */
+        .custom-card {
+            max-width: 540px;
+            border-radius: 15px; /* Adding curved edges */
+            overflow: hidden; /* To clip content inside rounded corners */
+            margin: 20px; /* Add some margin for spacing */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
         }
 
-        .card {
-            border-radius: 15px;
-            border: 2px solid white;
-            background-color: black;
-            overflow: hidden;
+        .custom-img {
+            border-radius: 15px 0 0 15px; /* Rounded left corner for image */
+            width: 100%; /* Make the image cover the column */
+            height: 100%; /* Make the image cover the column */
+            object-fit: cover; /* Maintain aspect ratio and cover content */
         }
 
-            .card:hover {
-                transform: scale(1.05);
-                transition: transform 0.3s ease-in-out;
-            }
-
-        .card-body {
+        .custom-card-content {
             padding: 15px;
         }
 
-        .h5 a {
-            color: white;
-            text-decoration: none;
-        }
-
-            .h5 a:hover {
-                text-decoration: underline;
-            }
-
-        .mb-0 {
-            color: white;
-            font-weight: bold;
-            font-family: serif;
-            margin-bottom: 0;
-        }
-
-        audio {
-            width: 100%;
-        }
-
-
-        .btn {
-            margin: 10px;
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
+        .read-button {
+            display: inline-block;
+            padding: 10px 15px;
+            border: 2px solid transparent; /* Initial transparent border */
             border-radius: 5px;
-            background-color: #dc3545; /* Button color */
+            background-color: #007bff;
             color: white;
             text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: border-color 0.3s ease-in-out; /* Transition effect for border color */
         }
 
-            .btn:hover {
-                background-color: #c82333; /* Darker color on hover */
-                transform: scale(1.05); /* Slight scaling on hover */
+            .read-button:hover {
+                border-color: white; /* Border color on hover */
             }
+
+        .card-container {
+/*            background-image: url('https://images7.alphacoders.com/132/1326369.png');
+*/            background-size: cover;
+              background-color:black;
+            background-repeat: no-repeat;
+            /*            background-attachment: fixed;
+*/ padding: 50px 0; /* Add padding to adjust spacing */
+            /*height: 100vh;*/ /* Cover the entire viewport height */
+        }
+
     </style>
-
-
 </head>
 <body>
-    <!-- inner page section -->
-    <!-- end inner page section -->
+
+    <div class="btn-box">
+
+        <a href="@Url.Action("userd","Home")">
+            Back to Prevoius
+        </a>
+    </div>
+
     <section class="product_section layout_padding">
         <div class="card-container">
 
-            @*<div class="container">
-                <div class="heading_container heading_center">
-                    <h2>
-
-                        <img src="~/images/6263233.jpg" />
-                    </h2>
-                </div>*@
-            <div class="btn-box">
-                <a href="@Url.Action("userd","Home")">
-                    Back to Previous
-                </a>
-            </div>
-            @*<div class="container">
-
-                    <a href="@Url.Action("AudioB","Home")" class="btn btn-danger"> AUDIO BOOK </a>
-                    <a href="@Url.Action("VideoB","Home")" class="btn btn-danger"> VIDEO BOOK </a>
-
-                    <a href="@Url.Action("DbookB","Home")" class="btn btn-danger"> EBOOK </a>
-                    <a href="@Url.Action("DbookB","Home")" class="btn btn-danger"> QUESTION BANK </a>
-                    <a href="@Url.Action("DbookB","Home")" class="btn btn-danger"> LECTURES </a>
-                    <a href="@Url.Action("DbookB","Home")" class="btn btn-danger"> JOURNALS </a>
 
 
-
-
-                </div>*@
-            <div>
-                <br />
-
-
-
-            </div>
+           
 
             <div class="row " style="margin-right:20px;">
-
-                <div class="row">
-                    @foreach (var o in Model.Qid)
-                    {
-                        <div class="col-md-3 mb-4">
-                            <div class="card text-light bg-dark">
-                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                    <img class="card-img-top" src="https://c1.wallpaperflare.com/preview/993/185/255/headphones-small-book-relax.jpg"
-                                         alt="Card image cap">
-                                    <a href="#!">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                    </a>
+                <div class="main">
+                    <ul class="cards">
+                        @foreach (var o in Model.Qid)
+                        {
+                            <center>
+                                <div class="card mb-3" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="https://st4.depositphotos.com/3159197/26442/i/450/depositphotos_264427126-stock-photo-3d-stack-of-colorful-books.jpg"
+                                                 alt="Trendy Pants and Shoes"
+                                                 class="img-fluid rounded-start" style="height:100%; width:300px;" />
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title" style="color: red; font-family: 'Juice ITC'; font-weight: bold; font-size: xx-large;">@o.Q_title</h5>
+                                                <p class="card-text" style="color:black; font-family:'Agency FB'; font-weight:bold; font-size:xx-large;">
+                                                    @o.year
+                                                </p>
+                                                <p class="card-text" style="color: blue; font-family: 'Agency FB'; font-weight: bold; font-size: xx-large; ">
+                                                    @o.Subject
+                                                </p>
+                                                <p class="card-text" style="color: blue; font-family: 'Agency FB'; font-weight: bold; font-size: xx-large; ">
+                                                    @o.Semester
+                                                </p>
+                                                <br />
+                                                <a href="@Url.Content(o.Q_Pdf)" class="read-button">
+                                                    View Question <span>&#128214;</span> <!-- Unicode for book symbol -->
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body text-center">
-                                    <h5 class="h5 font-weight-bold"><a href="#" target="_blank" style="font-family: serif; font-weight: bold;">@o.title</a></h5>
-                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.Semester</p>
-
-                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.Subject</p>
-                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.Semester</p>
-                                    <p class="mb-0" style="font-family: serif; font-weight: bold; color: white;">@o.year</p>
-
-
-                                    <!--<audio controls controlsList="nodownload" oncontextmenu="return false;">-->
-                                    @*<source src="@Url.Content(o.Audio_File)" type="audio/mp3">*@
-                                    <!--Your browser does not support the audio element.-->
-                                    @*</audio>*@
-
-                                    <ul>
-                                        <li class="tag__item play blue">
-                                            <a href="@Url.Content(o.Q_Pdf)" class="btn btn-success"> Read  Book </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    }
+                            </center>
+                        }
+                    </ul>
                 </div>
 
 
             </div>
-        </div>
+
 
         </div>
+
+
+
 
     </section>
+
+
     <div class="btn-box">
+
         <a href="@Url.Action("userd","Home")">
-            Back to Previous
+            Back to Prevoius
         </a>
     </div>
+    @*<div class="btn-box">
+            <a href="@Url.Action("userd","Home")">
+                Back to Home
+            </a>
+        </div>*@
+    </div>
+    </section>
 </body>
 </html>
+
+
+
+
+
 
 
 

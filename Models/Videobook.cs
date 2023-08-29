@@ -11,16 +11,26 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web;
+    using System.Xml.Linq;
 
     public partial class Videobook
     {
         public int Video_ID { get; set; }
+        [Required(ErrorMessage = "Name Is Required")]
+        [Display(Name = "Title")]
         public string Video_Name { get; set; }
+        [Required(ErrorMessage = "File Is Required")]
+        [Display(Name = "Video")]
         public string Video_File { get; set; }
 
         public HttpPostedFileBase Vdo_file { get; set; }
+        [Required(ErrorMessage = "Description Is Required")]
+        [Display(Name = "Description")]
         public string Video_Description { get; set; }
+        [Required(ErrorMessage = "Subject Is Required")]
+        [Display(Name = "Subject")]
         public string Video_Subject { get; set; }
     }
 }

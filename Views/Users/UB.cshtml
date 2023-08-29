@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "UB";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        
+                .card-container {
+                    /*background-image: url('https://images7.alphacoders.com/132/1326369.png');*/
+                    background-color:black;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    /*            background-attachment: fixed;
+        */ padding: 50px 0; /* Add padding to adjust spacing */
+                    /*height: 100vh;*/ /* Cover the entire viewport height */
+                }
+
+                .btn {
+                    margin: 10px;
+                    padding: 15px 30px;
+                    font-size: 18px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #dc3545; /* Button color */
+                    color: white;
+                    text-decoration: none;
+                    cursor: pointer;
+/*                    transition: background-color 0.3s ease, transform 0.2s ease;
+*/                }
+
+                    .btn:hover {
+                        background-color: #c82333; /* Darker color on hover */
+                        transform: scale(1.05); /* Slight scaling on hover */
+                    }
+                    .head{
+                        background-color:black;
+                        color:white;
+                    }
+
+        .custom-card {
+            border-radius: 30px; /* Increased border radius for more curved edges */
+            border: 3px solid red;
+            transition: transform 0.2s;
+        }
+
+            .custom-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    </style>
+</head>
+<body>
+
+
+    <div class="head">
+        <div class="btn-box">
+
+            <a href="@Url.Action("userd","Home")" style="color:wheat;">
+                Back to Prevoius
+            </a>
+        </div>
+    </div>
+
+<section class="product_section layout_padding">
+    <div class="card-container">
+
+        <div class="row">
+            @foreach (var o in Model.Cid)
+            {
+                <div class="col-md-4 mb-4">
+                    <section style="background-color: #eee;">
+                        @*<div class="container py-5">*@
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-card" >
+                                        <div class="d-flex justify-content-between p-3">
+                                            <p class="lead mb-0" style="color:red;font-weight:bold;font-family:'Franklin Gothic Book';">@o.com_name</p>
+                                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                                 style="width: 35px; height: 35px;">
+                                                <p class="text-white mb-0 small"></p>
+                                            </div>
+                                        </div>
+                                        <img src="https://imgix.theurbanlist.com/content/general/Horror-Books-Hero.jpg?auto=format,compress&w=520&h=390&fit=crop"
+                                             class="card-img-top" alt="Laptop" />
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <p class="small" style="color:blue; font-family:'Franklin Gothic Book'; font-weight:bold;"><a href="#!" class="text-muted">@o.com_desc</a></p>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <h5 class="mb-0">@o.com_author</h5>
+                                                <h5 class="text-dark mb-0">Rs. "@o.com_price"</h5>
+                                            </div>
+                                            <center>
+                                                <a href="@Url.Action("Create","Payments")" class="btn btn-outline-success py-3 px-4">Buy Now</a>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @*</div>*@
+                    </section>
+                </div>
+            }
+        </div>
+        </div>
+    </section>
+    <</body>
+
+
