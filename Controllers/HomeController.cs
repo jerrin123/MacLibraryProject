@@ -202,8 +202,13 @@ namespace MacLibraryProject.Controllers
 
         }
 
-       
 
+        public ActionResult Chat()
+        {
+
+
+            return View();
+        }
 
 
         public ActionResult Wishlist()

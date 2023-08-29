@@ -148,7 +148,6 @@
     <Compile Include="Controllers\LeavesController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
-    <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="Controllers\staffsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\VideobooksController.cs" />
@@ -258,6 +257,7 @@
     <Content Include="Content\User\css\bootstrap-datepicker.min.css" />
     <Content Include="Content\User\css\bootstrap.css" />
     <Content Include="Content\User\css\bootstrap.min.css" />
+    <Content Include="Content\User\css\chatt.css" />
     <Content Include="Content\User\css\font-awesome.min.css" />
     <Content Include="Content\User\css\icomoon.css" />
     <Content Include="Content\User\css\login.css" />
@@ -310,6 +310,7 @@
     <Content Include="Content\User\js\jquery.nice-select.min.js" />
     <Content Include="Content\User\js\niceCountryInput.js" />
     <Content Include="Content\User\js\owl.carousel.min.js" />
+    <Content Include="Content\User\js\Script.js" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\lightbox.css" />
@@ -572,13 +573,9 @@
     <Content Include="Views\Home\Videohome.cshtml" />
     <Content Include="Views\Home\Ebookhome.cshtml" />
     <Content Include="Views\Home\Questionhome.cshtml" />
-    <Content Include="Views\Requests\Create.cshtml" />
-    <Content Include="Views\Requests\Delete.cshtml" />
-    <Content Include="Views\Requests\Details.cshtml" />
-    <Content Include="Views\Requests\Edit.cshtml" />
-    <Content Include="Views\Requests\Index.cshtml" />
     <Content Include="Views\Home\Staff.cshtml" />
     <Content Include="Views\Users\UB.cshtml" />
+    <Content Include="Views\Home\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
