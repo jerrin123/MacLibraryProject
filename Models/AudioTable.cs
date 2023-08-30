@@ -20,8 +20,6 @@ namespace MacLibraryProject.Models
         public string Audio_Description { get; set; }
         public string Audio_Subject { get; set; }
         public string Audio_File { get; set; }
-
         public HttpPostedFileBase Ado_file { get; set; }
-
     }
 }

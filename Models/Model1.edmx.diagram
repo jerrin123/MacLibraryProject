@@ -24,7 +24,6 @@
         <EntityTypeShape EntityType="LibraryDbModel.Dbook" Width="1.5" PointX="9.375" PointY="9.75" />
         <EntityTypeShape EntityType="LibraryDbModel.Question" Width="1.5" PointX="3.375" PointY="10.75" />
         <EntityTypeShape EntityType="LibraryDbModel.Request" Width="1.5" PointX="5.375" PointY="10.75" />
-        <EntityTypeShape EntityType="LibraryDbModel.Journal" Width="1.5" PointX="0.75" PointY="11.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

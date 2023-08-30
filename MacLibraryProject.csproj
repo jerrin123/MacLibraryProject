@@ -185,9 +185,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ItemModel.cs" />
-    <Compile Include="Models\Journal.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Leave.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

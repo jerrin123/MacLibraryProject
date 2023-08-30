@@ -95,18 +95,6 @@
           <Property Name="cat_fid" Type="int" Nullable="false" />
           <Property Name="item_branch" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Journal">
-          <Key>
-            <PropertyRef Name="J_id" />
-          </Key>
-          <Property Name="J_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="Desc" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Language" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Publisher" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="ISBN" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="Leave">
           <Key>
             <PropertyRef Name="leave_id" />
@@ -214,7 +202,6 @@
           <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dbook" EntityType="Self.Dbook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
@@ -278,7 +265,6 @@
           <EntitySet Name="Dbooks" EntityType="LibraryDbModel.Dbook" />
           <EntitySet Name="Questions" EntityType="LibraryDbModel.Question" />
           <EntitySet Name="Requests" EntityType="LibraryDbModel.Request" />
-          <EntitySet Name="Journals" EntityType="LibraryDbModel.Journal" />
           </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -462,18 +448,6 @@
           <Property Name="Book_Author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Student_Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Journal">
-          <Key>
-            <PropertyRef Name="J_id" />
-          </Key>
-          <Property Name="J_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Desc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Language" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Publisher" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ISBN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -670,19 +644,6 @@
                 <ScalarProperty Name="Book_Author" ColumnName="Book_Author" />
                 <ScalarProperty Name="Book_Name" ColumnName="Book_Name" />
                 <ScalarProperty Name="Req_ID" ColumnName="Req_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Journals">
-            <EntityTypeMapping TypeName="LibraryDbModel.Journal">
-              <MappingFragment StoreEntitySet="Journal">
-                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
-                <ScalarProperty Name="Language" ColumnName="Language" />
-                <ScalarProperty Name="Desc" ColumnName="Desc" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="J_id" ColumnName="J_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

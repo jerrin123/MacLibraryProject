@@ -42,6 +42,5 @@ namespace MacLibraryProject.Models
         public virtual DbSet<Dbook> Dbooks { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
-        public virtual DbSet<Journal> Journals { get; set; }
     }
 }
