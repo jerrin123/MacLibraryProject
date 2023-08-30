@@ -15,9 +15,17 @@ namespace MacLibraryProject.Controllers
         private LibraryDbEntities db = new LibraryDbEntities();
 
         // GET: Communities
-        public ActionResult Index()
+        public ActionResult Index(string searchBy, string search)
         {
-            return View(db.Communities.ToList());
+            if (searchBy == "com_author")
+            {
+                return View(db.Communities.Where(x => x.com_author.StartsWith(search) || search == null).ToList());
+            }
+            else
+            {
+                return View(db.Communities.Where(x => x.com_name.StartsWith(search) || search == null).ToList());
+            }
+            //return View(db.Communities.ToList());
         }
 
         public ActionResult List()

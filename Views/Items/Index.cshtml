@@ -4,23 +4,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
 }
-<br /><br /><br /><br />
-<br />
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <head>
     <style>
         .table {
             width: 100%;
             border-collapse: collapse;
-            font-family:serif;
-            color:black;
-            text-align:center;
-            font-size:large
-           
+            font-family: serif;
+            color: black;
+            text-align: center;
+            font-size: large
         }
 
             .table th, .table td {
@@ -34,6 +26,12 @@
             }
     </style>
 </head>
+<body>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
 <br />
 <br />
 <br />
@@ -151,3 +149,4 @@
 
         </table>
     </center>
+    </body>

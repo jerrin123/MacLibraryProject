@@ -11,17 +11,15 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-
-    public partial class Question
+    
+    public partial class Journal
     {
-        public int Q_id { get; set; }
-        public string Subject { get; set; }
-        public string Semester { get; set; }
-        public string year { get; set; }
-        public string Q_Pdf { get; set; }
-        public HttpPostedFileBase Q_p { get; set; }
-
-        public string Q_title { get; set; }
+        public int J_id { get; set; }
+        public string Name { get; set; }
+        public string Desc { get; set; }
+        public string Language { get; set; }
+        public string Publisher { get; set; }
+        public System.DateTime Date { get; set; }
+        public string ISBN { get; set; }
     }
 }

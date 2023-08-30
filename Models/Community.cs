@@ -11,23 +11,13 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Community
     {
         public int com_id { get; set; }
-
-        [Required(ErrorMessage ="Name Required")]
-        [Display(Name ="Book Name")]
         public string com_name { get; set; }
-        [Required(ErrorMessage = "Description Required")]
-        [Display(Name = "Book Description")]
         public string com_desc { get; set; }
-        [Required(ErrorMessage = "AUthor Name Required")]
-        [Display(Name = "Author")]
         public string com_author { get; set; }
-        [Required(ErrorMessage = "Price Required")]
-        [Display(Name = "Book Price")]
         public int com_price { get; set; }
     }
 }

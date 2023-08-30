@@ -11,26 +11,17 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.Web;
 
     public partial class AudioTable
     {
-        
         public int Audio_id { get; set; }
-        [Required(ErrorMessage = "Name Is Required")]
-        [Display(Name = "Title")]
         public string Audio_Name { get; set; }
-        [Required(ErrorMessage = "Description Is Required")]
-        [Display(Name = "Description")]
         public string Audio_Description { get; set; }
-        [Required(ErrorMessage = "Subject Is Required")]
-        [Display(Name = "Subject")]
         public string Audio_Subject { get; set; }
-        [Required(ErrorMessage = "File Is Required")]
-        [Display(Name = "Audio")]
         public string Audio_File { get; set; }
 
         public HttpPostedFileBase Ado_file { get; set; }
+
     }
 }

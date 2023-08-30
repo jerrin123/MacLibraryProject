@@ -7,73 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
-
 namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class User
     {
         public int User_Id { get; set; }
-
-        [Display(Name= "First Name")]
-        [Required(ErrorMessage = "Please enter your first name.")]
         public string User_Firstname { get; set; }
-
-        [Display(Name = "Last Name")]
-        [Required(ErrorMessage = "Please enter your last name.")]
         public string User_Lastname { get; set; }
-
-        [Display(Name = "Email")]
-        [Required(ErrorMessage = "Please enter your Email Address.")]
-        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
         public string User_Email { get; set; }
-
-        [Display(Name = "Password")]
-        [Required(ErrorMessage = "Please enter your password ")]
-        [DataType(DataType.Password)]
         public string User_Password { get; set; }
-
-        [Display(Name = "Contact")]
-        [Required(ErrorMessage = "Please enter your Phone.")]
         public int User_Contact { get; set; }
-
-        [Display(Name = "Department")]
-        [Required(ErrorMessage = "Please enter your Department Name.")]
         public string User_Department { get; set; }
     }
 }
-
-
-
-//public int User_Id { get; set; }
-
-//[Display(Name = "First Name")]
-//[Required(ErrorMessage = "Please enter your first name.")]
-//public string User_Firstname { get; set; }
-
-//[Display(Name = "Last Name")]
-//[Required(ErrorMessage = "Please enter your last name.")]
-//public string User_Lastname { get; set; }
-
-//[Display(Name = "Email")]
-//[Required(ErrorMessage = "Please enter your Email Address.")]
-//[EmailAddress(ErrorMessage = "Please enter a valid email address.")]
-//public string User_Email { get; set; }
-
-//[Display(Name = "Password")]
-//[Required(ErrorMessage = "Please enter your password ")]
-//[DataType(DataType.Password)]
-//public string User_Password { get; set; }
-
-//[Display(Name = "Contact")]
-//[Required(ErrorMessage = "Please enter your Phone.")]
-//public int User_Contact { get; set; }
-
-//[Display(Name = "Department")]
-//[Required(ErrorMessage = "Please enter your Department Name.")]
-//public string User_Department { get; set; }
