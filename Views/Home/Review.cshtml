@@ -1,0 +1,93 @@
+﻿@model MacLibraryProject.Models.Testimonial
+@{
+    ViewBag.Title = "Review";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var testimonials = Model.Tid;
+    var columnsPerRow = 3; // Display 3 cards in one row
+    var cardSize = "420px"; // Set the width and height to 250 pixels
+    var cardSpacing = "2%"; // Adjust the spacing as needed
+    var cardBackgroundColor = "#f8f9fa"; // Background color for cards
+    var cardBorderColor = "#fffff"; // Border color for cards
+    var cardBorderRadius = "20px"; // Border radius for cards
+}
+
+<style>
+    /* Style for cards and images */
+    .card-cascade.narrower {
+        width: @cardSize;
+        height: @cardSize; /* Set the card height to 250px */
+        margin: @cardSpacing;
+        background-color: @cardBackgroundColor;
+        border: 1px solid @cardBorderColor;
+        border-radius: @cardBorderRadius;
+    }
+    .card-cascade.narrower:hover {
+        transform: scale(1.02); /* Add a hover effect to the cards */
+    }
+    .card-img-top {
+        width: 100px;
+        height: 100px; /* Set the height to 100% for equal card heights */
+        object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+        border-top-left-radius: @cardBorderRadius; /* Rounded corners for the image */
+        border-top-right-radius: @cardBorderRadius;
+    }
+    .scrollable-card-content {
+        max-height: 200px; /* Set a maximum height for the scrollable content */
+        overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+    }
+
+    
+    .card-container {
+        background-image: url('https://images7.alphacoders.com/132/1326369.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        padding: 50px 0; /* Add padding to adjust spacing */
+        /*height: 100vh;*/ /* Cover the entire viewport height */
+    }
+</style>
+
+<section class="product_section layout_padding">
+    <div class="card-container">
+        <div class="btn-box">
+            <a href="@Url.Action("userd","Home")">
+                Back to Previous
+            </a>
+        </div>
+        
+
+        <div class="row">
+            @foreach (var o in Model.Tid)
+            {
+                <div class="col-md-@(12 / columnsPerRow) mb-4">
+                    <!-- Card Narrower -->
+                    <div class="card card-cascade narrower">
+                        <!-- Card image -->
+                        <div class="view view-cascade overlay">
+                            <img class="card-img-top" src="@Url.Content(o.Test_Pic)" alt="Card image cap">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!-- Card content -->
+                        <div class="card-body card-body-cascade">
+                            <!-- Label -->
+                            <h5 class="pink-text pb-2 pt-1"><i class=""></i> @o.Test_Name</h5>
+                            <!-- Title -->
+                            <h4 class="font-weight-bold card-title">@o.Test_Dept</h4>
+                            <!-- Scrollable Text -->
+                            <div class="scrollable-card-content">
+                                <p class="card-text">@o.Test_Review</p>
+                            </div>
+                            <!-- Button -->
+                            @*<a class="btn btn-unique">Button</a>*@
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        </div>
+    </section>

@@ -18,7 +18,10 @@ namespace MacLibraryProject.Models
         public int Video_ID { get; set; }
         public string Video_Name { get; set; }
         public string Video_File { get; set; }
+
         public HttpPostedFileBase Vdo_file { get; set; }
+
+        //public HttpPostedFileBase Vdo_file { get; set; }
         public string Video_Description { get; set; }
         public string Video_Subject { get; set; }
     }

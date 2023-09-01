@@ -11,13 +11,20 @@ namespace MacLibraryProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Request
+    using System.Web;
+
+    public partial class Test
     {
-        public int Req_ID { get; set; }
-        public string Book_Name { get; set; }
-        public string Book_Author { get; set; }
-        public string Student_Name { get; set; }
-        public string Student_Department { get; set; }
+        public int Test_id { get; set; }
+        public string Test_Name { get; set; }
+        public string Test_Dept { get; set; }
+        public string Test_Review { get; set; }
+        public string Test_Pic { get; set; }
+
+        public HttpPostedFileBase T_pic { get; set; }
+
+        //public HttpPostedFileBase T_pic { get; set; }
+
+
     }
 }

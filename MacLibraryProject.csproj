@@ -149,6 +149,7 @@
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\staffsController.cs" />
+    <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\VideobooksController.cs" />
     <Compile Include="Global.asax.cs">
@@ -210,15 +211,13 @@
     <Compile Include="Models\Question.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Request.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\staff.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Testimonial.cs">
+    <Compile Include="Models\Test.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Testimonial.cs" />
     <Compile Include="Models\usedbook.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -576,6 +575,12 @@
     <Content Include="Views\Home\Staff.cshtml" />
     <Content Include="Views\Users\UB.cshtml" />
     <Content Include="Views\Home\Chat.cshtml" />
+    <Content Include="Views\Tests\Create.cshtml" />
+    <Content Include="Views\Tests\Delete.cshtml" />
+    <Content Include="Views\Tests\Details.cshtml" />
+    <Content Include="Views\Tests\Edit.cshtml" />
+    <Content Include="Views\Tests\Index.cshtml" />
+    <Content Include="Views\Home\Review.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -584,6 +589,7 @@
     <Folder Include="NewPic\" />
     <Folder Include="OutPic\" />
     <Folder Include="ProPic\" />
+    <Folder Include="Testimonial\" />
     <Folder Include="Vdo\" />
   </ItemGroup>
   <ItemGroup>

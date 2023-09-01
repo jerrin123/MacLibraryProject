@@ -10,138 +10,119 @@ using MacLibraryProject.Models;
 
 namespace MacLibraryProject.Controllers
 {
-    public class AdminsController : Controller
+    public class TestsController : Controller
     {
         private LibraryDbEntities db = new LibraryDbEntities();
 
-        // GET: Admins
-        //public ActionResult Index()
-        //{
-        //    return View(db.Admins.ToList());
-        //}
-
+        // GET: Tests
         public ActionResult Index()
         {
-            var availables = db.Availables.Include(a => a.Item);
-            return View(availables.ToList());
+            return View(db.Tests.ToList());
         }
-        // GET: Admins/Details/5
+
+        // GET: Tests/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Test test = db.Tests.Find(id);
+            if (test == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
-        }
-        public ActionResult LogIn()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult LogIn(Admin a)
-        {
-            int res = db.Admins.Where(x => x.Admin_Email == a.Admin_Email && x.Admin_Password == a.Admin_Password).Count();
-            if (res == 1)
-            {
-                return RedirectToAction("Admin", "Home");
-            }
-            else
-            {
-                //Response.Write("<script>alert('Invalid Username/Password'); </script>");
-                return View();
-            }
+            return View(test);
         }
 
-
-      
-        public ActionResult UserList()
-        {
-            return View(db.Users.ToList());
-        }
-        // GET: Admins/Create
-       
-        // GET: Admins/Create
+        // GET: Tests/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admins/Create
+        // POST: Tests/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Admin_Id,Admin_Email,Admin_Password")] Admin admin)
+        public ActionResult Create( Test test)
         {
             if (ModelState.IsValid)
             {
-                db.Admins.Add(admin);
-                db.SaveChanges();
-                return RedirectToAction("LogIn");
+
+                test.T_pic.SaveAs(Server.MapPath("~/Testimonial/" + test.T_pic.FileName));
+                //product.Prod_Pic = "~/ProPic/" + product.Pro_Pic.FileName;
+                if (test.T_pic.FileName != "")
+                {
+                    test.Test_Pic = "~/Testimonial/" + test.T_pic.FileName;
+                    db.Tests.Add(test);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    test.Test_Pic = null;
+                }
+
+                return RedirectToAction("Index");
             }
 
-            return View(admin);
+            return View(test);
         }
 
-        // GET: Admins/Edit/5
+        // GET: Tests/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Test test = db.Tests.Find(id);
+            if (test == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(test);
         }
 
-        // POST: Admins/Edit/5
+        // POST: Tests/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Admin_Id,Admin_Email,Admin_Password")] Admin admin)
+        public ActionResult Edit([Bind(Include = "Test_id,Test_Name,Test_Dept,Test_Review,Test_Pic")] Test test)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(admin).State = EntityState.Modified;
+                db.Entry(test).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(admin);
+            return View(test);
         }
 
-        // GET: Admins/Delete/5
+        // GET: Tests/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Test test = db.Tests.Find(id);
+            if (test == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(test);
         }
 
-        // POST: Admins/Delete/5
+        // POST: Tests/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Admin admin = db.Admins.Find(id);
-            db.Admins.Remove(admin);
+            Test test = db.Tests.Find(id);
+            db.Tests.Remove(test);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -154,7 +135,5 @@ namespace MacLibraryProject.Controllers
             }
             base.Dispose(disposing);
         }
-
-
     }
 }

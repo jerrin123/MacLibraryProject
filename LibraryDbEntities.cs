@@ -31,9 +31,7 @@ namespace MacLibraryProject
 
         public DbSet <Question> Questions { get; set; }
 
-        
-
-        public DbSet <Request> Requests { get; set; }
+        public DbSet <Test> Tests { get; set; }
 
     }
 }

@@ -27,6 +27,8 @@ namespace MacLibraryProject.Models
         public string item_pic { get; set; }
 
         public HttpPostedFileBase ite_pic { get; set; }
+        //public HttpPostedFileBase ite_pic { get; set; }
+
         public string item_author { get; set; }
         public int cat_fid { get; set; }
         public string item_branch { get; set; }

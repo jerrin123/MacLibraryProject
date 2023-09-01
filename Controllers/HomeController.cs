@@ -144,6 +144,27 @@ namespace MacLibraryProject.Controllers
         //    return View();
 
         //}
+
+        public ActionResult Review(int? id)
+        {
+            Testimonial o = new Testimonial();
+
+
+
+
+            if (id == null)
+            {
+                o.Tid = db.Tests.ToList();
+            }
+            else
+            {
+                // o.Out = db.VideoB.Where(z => z.branch_fid == id).ToList();
+            }
+
+            return View(o);
+
+        }
+
         public ActionResult VideoB(int? id)
         {
             VideoModel o = new VideoModel();

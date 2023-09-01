@@ -20,7 +20,9 @@ namespace MacLibraryProject.Models
         public string Semester { get; set; }
         public string year { get; set; }
         public string Q_Pdf { get; set; }
+
         public HttpPostedFileBase Q_p { get; set; }
+        //public HttpPostedFileBase Q_p { get; set; }
         public string Q_title { get; set; }
     }
 }

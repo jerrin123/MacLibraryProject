@@ -21,6 +21,8 @@ namespace MacLibraryProject.Models
         public string Ebook_Pdf { get; set; }
 
         public HttpPostedFileBase Ebk_file { get; set; }
+        //public HttpPostedFileBase Ebk_file { get; set; }
+
         public string Ebook_Author { get; set; }
     }
 }
